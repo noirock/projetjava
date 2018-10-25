@@ -33,5 +33,7 @@ public class Ennemi extends Personnage {
      groupe[n].modifPV(-force%10);
      groupe[n].parle("AIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!");
      System.out.println(groupe[n].getNom() + "perd "+ force%10 + "PV");
+         
+    
     }
 }
