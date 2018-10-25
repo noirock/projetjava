@@ -12,7 +12,6 @@ package darkesjava;
 public class Ennemi extends Personnage {
     private String attaque;
     private String cri;
-    private int pv;
     public Ennemi(String nom, float pv, String atk, String c){
         super(nom, pv);
         this.attaque=atk;
