@@ -14,6 +14,14 @@ public class DarkesJava {
     /**
      * @param args the command line arguments
      */
+    
+    public void evenement(){
+        
+    }
+    public void combat(){
+        
+    }
+    
     public static void main(String[] args) {
         // TODO code application logic here
         
@@ -21,9 +29,18 @@ public class DarkesJava {
        Aventurier elfe = new Aventurier("Tirael", 8, 40, 70, 50);
        Aventurier mage = new Aventurier("Bandoulf", 7, 20, 30, 70);
        
+       Personnage[] groupe=new Personnage[3];
+       groupe[0]=nain;
+       groupe[1]=elfe;
+       groupe[2]=mage;
+       
+       Ennemi[] mechants = new Ennemi[3];
        Ennemi gobl1 = new Ennemi("Zibli", 5, "2", "Garboulag!");
        Ennemi gobl2 = new Ennemi("Billi", 5, "2", "Garboulug!");
        Ennemi gobl3 = new Ennemi("Guili", 5, "2", "Garboulog!");
+       mechants[0]=gobl1;
+       mechants[1]=gobl2;
+       mechants[2]=gobl3;
     }
     
 }
