@@ -9,7 +9,9 @@ package darkesjava;
  *
  * @author Justin Duban
  */
-public class Rencontre extends Evenement {
+public class Rencontre {
+    String titre;
+    String intro;
     Personnage[] pnjs;
     
 }

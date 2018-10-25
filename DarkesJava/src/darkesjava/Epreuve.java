@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,11 +9,8 @@ package darkesjava;
  *
  * @author Justin Duban
  */
-public class Combat{
+public class Epreuve {
     String titre;
     String intro;
-    Ennemi[] adversaires;
-    private void affrontement(Personnage[] groupe){
-        
-    }
+    
 }

@@ -10,7 +10,5 @@ package darkesjava;
  * @author Justin Duban
  */
 public class Evenement {
-    String titre;
-    String intro;
     
 }
