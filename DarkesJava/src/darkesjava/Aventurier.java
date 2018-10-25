@@ -51,5 +51,7 @@ public class Aventurier extends Personnage {
     }
     public void coup(Ennemi truc){
         truc.modifPV(-force%10);
+        System.out.println(truc.getCri());
+        System.out.println(truc.getNom() + "perds " +(force/10)+"points de vie");
     }
 }
