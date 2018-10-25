@@ -23,7 +23,12 @@ public class Ennemi extends Personnage {
     public void attaque(Personnage[] groupe){
      //faire un switch, cf labw1
      //et oué
+     int nb=0;
+     for (int i=0; i<groupe.length;i++){
+         if (groupe[i].getPV()<=0){nb++;}
+     }
      Random rand = new Random();
-     int n = rand.nextInt(3) + 1;
+     int n = rand.nextInt(nb) + 1;
+     
     }
 }
