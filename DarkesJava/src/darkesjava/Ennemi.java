@@ -11,6 +11,7 @@ import java.util.Random;
  */
 public class Ennemi extends Personnage {
     private String attaque;
+    private int force;
     private String cri;
     public Ennemi(String nom, float pv, String atk, String c){
         super(nom, pv);
@@ -23,12 +24,14 @@ public class Ennemi extends Personnage {
     public void attaque(Personnage[] groupe){
      //faire un switch, cf labw1
      //et oué
-     int nb=0;
-     for (int i=0; i<groupe.length;i++){
-         if (groupe[i].getPV()<=0){nb++;}
-     }
+
      Random rand = new Random();
-     int n = rand.nextInt(nb) + 1;
-     
+     int n = rand.nextInt(groupe.length);
+     while (groupe[n].getPV()<=0){
+         n = rand.nextInt(groupe.length);
+     }
+     groupe[n].modifPV(-force%10);
+     groupe[n].parle("AIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!");
+     System.out.println(groupe[n].getNom() + "perd "+ force%10 + "PV");
     }
 }
