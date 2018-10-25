@@ -49,4 +49,7 @@ public class Aventurier extends Personnage {
     public void modifOr(int piece){
         or+=piece;
     }
+    public void coup(Ennemi truc){
+        truc.modifPV(-force%10);
+    }
 }
