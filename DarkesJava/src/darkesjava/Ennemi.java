@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package darkesjava;
-
+import java.util.Random;
 /**
  *
  * @author Justin Duban
@@ -17,8 +17,13 @@ public class Ennemi extends Personnage {
         this.attaque=atk;
         this.cri=c;
     }
+    public String getCri(){
+        return cri;
+    }
     public void attaque(Personnage[] groupe){
      //faire un switch, cf labw1
      //et oué
+     Random rand = new Random();
+     int n = rand.nextInt(3) + 1;
     }
 }
