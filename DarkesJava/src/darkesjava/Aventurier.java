@@ -34,5 +34,19 @@ public class Aventurier extends Personnage {
         }
         return 2; //succès
     }
-    
+        public int getForce(){
+        return force;
+    }
+    public int getAdresse(){
+        return adresse;
+    }
+    public int getIntelligence(){
+        return intelligence;
+    }
+    public int getOr(){
+        return or;
+    }
+    public void modifOr(int piece){
+        or+=piece;
+    }
 }
