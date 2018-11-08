@@ -22,7 +22,7 @@ public class DarkesJava {
     }
     public static boolean groupeVivant(Personnage[] G){
         for(int i=0; i< G.length; i++){
-            if (G[i].getPV()!=0){
+            if (G[i].getPV()>0){
                 return true;
             }
         }
@@ -55,9 +55,8 @@ public class DarkesJava {
             for(int i=0; i<groupe.length;i++){
                 if (v==0){
                     if(groupe[i].getPV()>0){
-                        System.out.println(groupe[i].getNom()+" cible?");
                         groupe[i].coup(mechants);
-                        if(groupeVivant(mechants)){
+                        if (groupeVivant(mechants)==false){
                             v=1;
                             i=groupe.length;
                             System.out.println("Victoire!!!");

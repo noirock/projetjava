@@ -52,7 +52,7 @@ public class Aventurier extends Personnage {
     }
     public void coup(Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
-        System.out.println("Cible de " + getNom() + "?");
+        System.out.println("Cible de "+getNom()+" :");
         for(int i=0; i<mechant.length; i++){
             if (mechant[i].getPV()>0){
                 System.out.println(mechant[i].getNom() + " " + mechant[i].getPV() + " : " + i);
