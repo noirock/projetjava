@@ -69,8 +69,8 @@ public class Aventurier extends Personnage {
             }
             else{System.out.println("Veuillez choisir une des cibles proposées");}   
         }
-        mechant[j].modifPV(-force%10);
+        mechant[j].modifPV(-force/10);
         System.out.println(mechant[j].getCri());
-        System.out.println(mechant[j].getNom() + "perds " +(force%10)+"PV");
+        System.out.println(mechant[j].getNom() + " perds " +(force/10)+"PV");
     }
 }

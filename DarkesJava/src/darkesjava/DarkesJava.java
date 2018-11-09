@@ -68,7 +68,7 @@ public class DarkesJava {
                 if (v==0){
                     if(mechants[i].getPV()>0){
                         mechants[i].attaque(groupe);
-                        if(groupeVivant(groupe)){
+                        if(groupeVivant(groupe)==false){
                             v=1;
                             i=mechants.length;
                             System.out.println("Défaite...");
