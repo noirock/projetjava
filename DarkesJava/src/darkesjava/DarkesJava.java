@@ -18,7 +18,34 @@ public class DarkesJava {
     public void evenement(){
         
     }
-    public void combat(){
+    public static void combat(Aventurier[] groupe, Ennemi[] mechants){
+        int v =0;
+        while(v==0){
+            for(int i=0; i<groupe.length;i++){
+                if (v==0){
+                    if(groupe[i].getPV()>0){
+                        groupe[i].coup(mechants);
+                        if (groupeVivant(mechants)==false){
+                            v=1;
+                            i=groupe.length;
+                            System.out.println("Victoire!!!");
+                        }
+                    }
+                }
+            }
+            for(int i=0; i<mechants.length;i++){
+                if (v==0){
+                    if(mechants[i].getPV()>0){
+                        mechants[i].attaque(groupe);
+                        if(groupeVivant(groupe)==false){
+                            v=1;
+                            i=mechants.length;
+                            System.out.println("Défaite...");
+                        }
+                    }
+                }
+            }
+        }
     }
     public static boolean groupeVivant(Personnage[] G){
         for(int i=0; i< G.length; i++){
@@ -49,34 +76,8 @@ public class DarkesJava {
        mechants[1]=gobl2;
        mechants[2]=gobl3;
        
-       
-        int v =0;
-        while(v==0){
-            for(int i=0; i<groupe.length;i++){
-                if (v==0){
-                    if(groupe[i].getPV()>0){
-                        groupe[i].coup(mechants);
-                        if (groupeVivant(mechants)==false){
-                            v=1;
-                            i=groupe.length;
-                            System.out.println("Victoire!!!");
-                        }
-                    }
-                }
-            }
-            for(int i=0; i<mechants.length;i++){
-                if (v==0){
-                    if(mechants[i].getPV()>0){
-                        mechants[i].attaque(groupe);
-                        if(groupeVivant(groupe)==false){
-                            v=1;
-                            i=mechants.length;
-                            System.out.println("Défaite...");
-                        }
-                    }
-                }
-            }
-        }
+       combat(groupe, mechants);
+        
     
     }
 }
