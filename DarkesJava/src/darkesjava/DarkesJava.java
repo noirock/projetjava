@@ -15,10 +15,13 @@ public class DarkesJava {
      * @param args the command line arguments
      */
     
-    public void evenement(){
-        
+    public void rencontre(Aventurier[] groupe, Rencontre rencontre){
+        System.out.println(rencontre.intro);
+        rencontre.pnj.sePresenter();
+        rencontre.pnj.parle(rencontre.defi);
     }
-    public static void combat(Aventurier[] groupe, Ennemi[] mechants){
+    public static void combat(Aventurier[] groupe, Ennemi[] mechants, Combat combat){
+        System.out.println("Début du combat!!!");
         int v =0;
         while(v==0){
             for(int i=0; i<groupe.length;i++){
@@ -76,7 +79,11 @@ public class DarkesJava {
        mechants[1]=gobl2;
        mechants[2]=gobl3;
        
-       combat(groupe, mechants);
+       Combat fight1 = new Combat();
+       combat(groupe, mechants,fight1);
+       
+       Personnage sirene = new Personnage("La sirene", 7);
+       Rencontre mermaid = new Rencontre("Vous arrivez dans une grotte, vous entendez l'eau couler d'un lac proche et une silhouette se dessine au bord de l'eau", "Bonjour étrangers, que faites-vous en mon domaine?", sirene);
         
     
     }

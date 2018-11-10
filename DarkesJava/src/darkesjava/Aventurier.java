@@ -61,13 +61,14 @@ public class Aventurier extends Personnage {
         int j = 10;
         while (j==10){
             String l = choix.nextLine();
-            if ((l.charAt(0)<='9')&&(l.charAt(0)>='0')){
-                String d = String.valueOf(l.charAt(0));
-                int c = Integer.parseInt(d);
-                if ((c<mechant.length)&&(mechant[c].getPV()>0)){j=c;}
-                else{System.out.println("Veuillez choisir une des cibles proposées");}
-            }
-            else{System.out.println("Veuillez choisir une des cibles proposées");}   
+            if(l.length()!=0){
+                if ((l.charAt(0)<='9')&&(l.charAt(0)>='0')){
+                    String d = String.valueOf(l.charAt(0));
+                    int c = Integer.parseInt(d);
+                    if ((c<mechant.length)&&(mechant[c].getPV()>0)){j=c;}
+                    else{System.out.println("Veuillez choisir une des cibles proposées");}
+                }
+            else{System.out.println("Veuillez choisir une des cibles proposées");}}   
         }
         mechant[j].modifPV(-force/10);
         System.out.println(mechant[j].getCri());

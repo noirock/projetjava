@@ -14,7 +14,4 @@ public class Combat{
     String titre;
     String intro;
     Ennemi[] adversaires;
-    private void affrontement(Personnage[] groupe){
-        
-    }
 }

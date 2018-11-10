@@ -12,6 +12,12 @@ package darkesjava;
 public class Rencontre {
     String titre;
     String intro;
-    Personnage[] pnjs;
+    String defi;
+    Personnage pnj;
+    Rencontre(String in, String de, Personnage r){
+        this.intro=in;
+        this.defi=de;
+        this.pnj=r;
+    }
     
 }
