@@ -19,7 +19,7 @@ public class Aventurier extends Personnage {
     private int intelligence;
     private int or;
     
-    public Aventurier(String nom, float pv, int fo, int ad, int in){
+    public Aventurier(String nom, int pv, int fo, int ad, int in){
         super(nom, pv);
         this.force=fo;
         this.adresse=ad;
@@ -55,11 +55,11 @@ public class Aventurier extends Personnage {
         System.out.println("Cible de "+getNom()+" :");
         for(int i=0; i<mechant.length; i++){
             if (mechant[i].getPV()>0){
-                System.out.println(mechant[i].getNom() + " " + mechant[i].getPV() + " : " + i);
+                System.out.println(mechant[i].getNom() + " " + mechant[i].getPV() + "pv : " + i);
             }
         }
-        int j = 0;
-        while (j==0){
+        int j = 10;
+        while (j==10){
             String l = choix.nextLine();
             if ((l.charAt(0)<='9')&&(l.charAt(0)>='0')){
                 String d = String.valueOf(l.charAt(0));

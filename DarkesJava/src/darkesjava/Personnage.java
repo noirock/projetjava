@@ -12,19 +12,19 @@ import java.util.Random;
  */
 public class Personnage {
     private String nom;
-    private float pv;
+    private int pv;
     
-    Personnage(String n, float p){
+    Personnage(String n, int p){
         this.nom=n;
         this.pv=p;
     }
     public String getNom(){
         return nom;
     }
-    public float getPV(){
+    public int getPV(){
         return pv;
     }
-    public void modifPV(float b){
+    public void modifPV(int b){
         pv=pv+b;
     }
     
@@ -32,6 +32,6 @@ public class Personnage {
         System.out.println("Salutations, mon nom est " + getNom());
     }
     public void parle(String s){
-        System.out.print(getNom() + ": " + s);
+        System.out.println(getNom() + ": " + s);
     }
 }

@@ -12,7 +12,7 @@ import java.util.Random;
 public class Ennemi extends Personnage {
     private String attaque;
     private String cri;
-    public Ennemi(String nom, float pv, String atk, String c){
+    public Ennemi(String nom, int pv, String atk, String c){
         super(nom, pv);
         this.attaque=atk;
         this.cri=c;
