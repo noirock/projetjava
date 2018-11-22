@@ -16,6 +16,11 @@ public class Combat{
     String titre;
     String intro;
     Ennemi[] adversaires;
+    public void Combat(String titre, String intro, Ennemi[] advs){
+        this.titre=titre;
+        this.intro=intro;
+        this.adversaires=advs;
+    }
     public void combat(Aventurier[] groupe){
         System.out.println("Début du combat!!!");
         int v =0;

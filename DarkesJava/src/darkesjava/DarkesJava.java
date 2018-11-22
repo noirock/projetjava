@@ -50,36 +50,6 @@ public class DarkesJava {
         }
         
     }
-    public static void combat(Aventurier[] groupe, Ennemi[] mechants, Combat combat){
-        System.out.println("Début du combat!!!");
-        int v =0;
-        while(v==0){
-            for(int i=0; i<groupe.length;i++){
-                if (v==0){
-                    if(groupe[i].getPV()>0){
-                        groupe[i].coup(mechants);
-                        if (groupeVivant(mechants)==false){
-                            v=1;
-                            i=groupe.length;
-                            System.out.println("Victoire!!!");
-                        }
-                    }
-                }
-            }
-            for(int i=0; i<mechants.length;i++){
-                if (v==0){
-                    if(mechants[i].getPV()>0){
-                        mechants[i].attaque(groupe);
-                        if(groupeVivant(groupe)==false){
-                            v=1;
-                            i=mechants.length;
-                            System.out.println("Défaite...");
-                        }
-                    }
-                }
-            }
-        }
-    }
     
     public static boolean groupeVivant(Personnage[] G){
         for(int i=0; i< G.length; i++){
@@ -102,16 +72,18 @@ public class DarkesJava {
        groupe[1]=elfe;
        groupe[2]=mage;
       
-       Ennemi[] mechants = new Ennemi[3];
+   
        Ennemi gobl1 = new Ennemi("Zibli", 5, "2", "Garboulag!");
        Ennemi gobl2 = new Ennemi("Billi", 5, "2", "Garboulug!");
        Ennemi gobl3 = new Ennemi("Guili", 5, "2", "Garboulog!");
-       mechants[0]=gobl1;
-       mechants[1]=gobl2;
-       mechants[2]=gobl3;
+       Ennemi[] adv = new Ennemi [3];
+       adv[0]=gobl1;
+       adv[1]=gobl2;
+       adv[2]=gobl3;
        
        Combat fight1 = new Combat();
-       combat(groupe, mechants,fight1);
+       fight1.adversaires=adv;
+       fight1.combat(groupe);
        
        Personnage sirene = new Personnage("La sirene", 7);
        Rencontre mermaid = new Rencontre("Vous arrivez dans une grotte, vous entendez l'eau couler d'un lac proche et une silhouette se dessine au bord de l'eau", "Bonjour étrangers, que faites-vous en mon domaine?", sirene);
