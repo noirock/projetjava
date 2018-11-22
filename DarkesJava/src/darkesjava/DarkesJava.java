@@ -18,38 +18,6 @@ public class DarkesJava {
      * @param args the command line arguments
      */
     
-    public static void rencontre(Aventurier[] groupe, Rencontre rencontre){
-        System.out.println(rencontre.intro);
-        rencontre.pnj.sePresenter();
-        rencontre.pnj.parle(rencontre.defi);
-        Scanner aventurier = new Scanner(System.in);
-        System.out.println("Quel personnage voullez vous envoyer pour parler à "+rencontre.pnj.getNom()+" ?");
-        for (int i=0;i<groupe.length;i++){
-            System.out.println("pour "+groupe[i].getNom()+" taper "+ i);
-        }
-        int c =10;
-        int j = 10;
-        while (j==10){
-            String l = aventurier.nextLine();
-            if(l.length()!=0){
-                if ((l.charAt(0)<='9')&&(l.charAt(0)>='0')){
-                    String d = String.valueOf(l.charAt(0));
-                    c = Integer.parseInt(d);
-                    if ((c<groupe.length)){j=c;}
-                    else{System.out.println("Veuillez choisir un des personnages proposés");}
-                }
-            else{System.out.println("Veuillez choisir un des personnages proposés");}}   
-        }
-        Random rand = new Random();
-        int n = rand.nextInt(3);
-        if (n==c){
-            System.out.println("felicitation vous réussisez l'épreuve sans soucis grâce a linventivité de"+groupe[n].getNom()+"vous vous soignez de 3pv sur chacun de vos aventuriers");
-        }
-        else{
-            System.out.println("En essayant une approche "+groupe[c].getNom()+" enerve "+rencontre.pnj.getNom()+" qui vous lance un sort et vous fait perdre 2pv a chacun de vos aventuriers");
-        }
-        
-    }
     
     public static boolean groupeVivant(Personnage[] G){
         for(int i=0; i< G.length; i++){
@@ -87,7 +55,7 @@ public class DarkesJava {
        
        Personnage sirene = new Personnage("La sirene", 7);
        Rencontre mermaid = new Rencontre("Vous arrivez dans une grotte, vous entendez l'eau couler d'un lac proche et une silhouette se dessine au bord de l'eau", "Bonjour étrangers, que faites-vous en mon domaine?", sirene);
-       rencontre(groupe,mermaid);
+       mermaid.rencontre(groupe,mermaid);
     
     }
 }
