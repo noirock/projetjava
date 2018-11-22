@@ -19,8 +19,8 @@ public class Mage extends Aventurier{
         cd1=0;
         cd2=0;
     }
-    String sort1 = " Boule de feu ";
-    public void sort1(Ennemi[] mechant){
+
+    public void sort1(Aventurier[] a,Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
         System.out.println("Cible de "+getNom()+" :");
         for(int i=0; i<mechant.length; i++){
@@ -41,7 +41,7 @@ public class Mage extends Aventurier{
             else{System.out.println("Veuillez choisir une des cibles proposées");}}   
         }
         if(action(getIntelligence(),10)==1){
-            mechant[j].modifPV(getIntelligence()/7);
+            mechant[j].modifPV(-getIntelligence()/7);
             System.out.println(mechant[j].getCri());
             System.out.println(mechant[j].getNom()+" perd "+getIntelligence()/7+" points de vie");
         }
@@ -49,14 +49,13 @@ public class Mage extends Aventurier{
             System.out.println(getNom()+" rate son sort");
         }
     }
-    String sort2 = " Choc de flamme ";
-    public void sort2(Ennemi[] groupe){
+    public void sort2(Aventurier[] a,Ennemi[] mechant){
         if(action(getIntelligence(),10)==1){
-            for(int i=0; i<groupe.length; i++){
-                if(groupe[i].pv>0){
-                    groupe[i].modifPV(getIntelligence()/20);
-                    System.out.println(groupe[i].getCri());
-                    System.out.println(groupe[i].getNom()+" perd "+getIntelligence()/20+" points de vie");    
+            for(int i=0; i<mechant.length; i++){
+                if(mechant[i].pv>0){
+                    mechant[i].modifPV(-getIntelligence()/20);
+                    System.out.println(mechant[i].getCri());
+                    System.out.println(mechant[i].getNom()+" perd "+getIntelligence()/20+" points de vie");    
                 }  
             }
         }

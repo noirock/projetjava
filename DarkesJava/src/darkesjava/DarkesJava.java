@@ -94,7 +94,7 @@ public class DarkesJava {
                }
            }  
        }
-       Combat fight1 = new Combat("","",adv);
+       Combat fight1 = new Combat("Le combat se déclenche contre ","Le combat se déclenche contre ",adv);
        fight1.combat(groupe);
        
        Personnage sirene = new Personnage("La sirene", 7);

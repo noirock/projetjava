@@ -24,9 +24,13 @@ public class Combat extends Evenement{
     public void combat(Aventurier[] groupe){
         
         Scanner choi = new Scanner(System.in);
+        
+        for (int i=0;i<groupe.length;i++){
+            System.out.println(groupe[i].getNom()+" est actuellement à "+groupe[i].getPV()+" PV");
+        }
         System.out.println(intro);
         for (int i=0;i<groupe.length;i++){
-                System.out.println(groupe[i].getNom()+" est actuellement à "+groupe[i].getPV()+" PV");
+            System.out.println(adversaires[i].getNom()+" est actuellement à "+adversaires[i].getPV()+" PV");
         }
         int v =0;
         while(v==0){
