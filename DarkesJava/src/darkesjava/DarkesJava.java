@@ -44,11 +44,42 @@ public class DarkesJava {
        Ennemi gobl1 = new Ennemi("Zibli", 5, 2, 40, "Garboulag!");
        Ennemi gobl2 = new Ennemi("Billi", 5, 2, 40, "Garboulug!");
        Ennemi gobl3 = new Ennemi("Guili", 5, 2, 40, "Garboulog!");
-       Ennemi[] adv = new Ennemi [3];
-       adv[0]=gobl1;
-       adv[1]=gobl2;
-       adv[2]=gobl3;
+       Ennemi troll1 = new Ennemi("bazoul",15,4,20, "bougabouh");
+       Ennemi troll2 = new Ennemi("bazeyl",15,4,20, "bougabouh");
+       Ennemi troll3 = new Ennemi("bazort",15,4,20, "bougabouh");
        
+       Ennemi[] liste = new Ennemi[6];
+       liste[0]=gobl1;
+       liste[1]=gobl2;
+       liste[2]=gobl3;
+       liste[3]=troll1;
+       liste[4]=troll2;
+       liste[5]=troll3;
+       
+       Random adversaire = new Random();
+       Ennemi[] adv = new Ennemi [3];
+       Integer[] verif=new Integer[3];
+       verif[0]=100;
+       verif[1]=100;
+       int j =0;
+       for (int i=0;i<3;i++){
+           j=0;
+           while (j==0){
+               
+               int k=adversaire.nextInt(liste.length);
+               if (k==verif[0]){
+                   j=0;
+               }
+               else if (k== verif[1]){
+                   j=0;
+               }
+               else{
+                   adv[i]=liste[k];
+                   verif[i]=k;
+                   j=1;
+               }
+           }  
+       }
        Combat fight1 = new Combat();
        fight1.adversaires=adv;
        fight1.combat(groupe);
