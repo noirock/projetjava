@@ -17,7 +17,6 @@ public class Aventurier extends Personnage {
     private int force;
     private int adresse;
     private int intelligence;
-    private int or;
     
     public Aventurier(String nom, int pv, int fo, int ad, int in){
         super(nom, pv);
@@ -44,12 +43,7 @@ public class Aventurier extends Personnage {
     public int getIntelligence(){
         return intelligence;
     }
-    public int getOr(){
-        return or;
-    }
-    public void modifOr(int piece){
-        or+=piece;
-    }
+    
     public void coup(Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
         System.out.println("Cible de "+getNom()+" :");
