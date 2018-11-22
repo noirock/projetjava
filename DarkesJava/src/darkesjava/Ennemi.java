@@ -38,7 +38,7 @@ public class Ennemi extends Personnage {
         groupe[n].modifPV(-attaque);
         groupe[n].parle("AIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!");
         System.out.println(groupe[n].getNom() + " perd "+ attaque + "PV");
-        System.out.println(groupe[n].getNom()+ "est maintenant à "+groupe[n].getPV()+" PV");
+        System.out.println(groupe[n].getNom()+ " est maintenant à "+groupe[n].getPV()+" PV");
      }
      else{
          System.out.println("Mais loupe sa cible");
