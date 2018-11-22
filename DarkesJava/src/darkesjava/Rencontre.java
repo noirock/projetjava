@@ -29,7 +29,9 @@ public class Rencontre {
         Scanner aventurier = new Scanner(System.in);
         System.out.println("Quel personnage voullez vous envoyer pour parler à "+rencontre.pnj.getNom()+" ?");
         for (int i=0;i<groupe.length;i++){
-            System.out.println("pour "+groupe[i].getNom()+" taper "+ i);
+            if(groupe[i].getPV()>0){
+                System.out.println("pour "+groupe[i].getNom()+" taper "+ i);
+            }
         }
         int c =10;
         int j = 10;
@@ -50,12 +52,14 @@ public class Rencontre {
             System.out.println("felicitation vous réussisez l'épreuve sans soucis grâce a linventivité de"+groupe[n].getNom()+"vous vous soignez de 3pv sur chacun de vos aventuriers");
             for (int i=0;i<groupe.length;i++){
                 groupe[i].modifPV(3);
+                System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" PV");
             }
         }
         else{
             System.out.println("En essayant une approche "+groupe[c].getNom()+" enerve "+rencontre.pnj.getNom()+" qui vous lance un sort et vous fait perdre 1pv a chacun de vos aventuriers");
             for (int i=0;i<groupe.length;i++){
                 groupe[i].modifPV(-1);
+                System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" PV");
             }
         }
         

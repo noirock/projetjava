@@ -23,6 +23,9 @@ public class Combat extends Evenement{
     }
     public void combat(Aventurier[] groupe){
         System.out.println("Début du combat!!!");
+        for (int i=0;i<groupe.length;i++){
+                System.out.println(groupe[i].getNom()+" est actuellement à "+groupe[i].getPV()+" PV");
+        }
         int v =0;
         while(v==0){
             for(int i=0; i<groupe.length;i++){
