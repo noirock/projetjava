@@ -17,9 +17,8 @@ public class Combat extends Evenement{
     String titre;
     String intro;
     Ennemi[] adversaires;
-    public void Combat(String titr, String in, Ennemi[] advs){
-        this.titre=titr; 
-        this.intro=in;
+    public Combat(String titr, String in, Ennemi[] advs){
+        super(titr, in);
         this.adversaires=advs;
     }
     public void combat(Aventurier[] groupe){

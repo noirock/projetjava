@@ -94,8 +94,7 @@ public class DarkesJava {
                }
            }  
        }
-       Combat fight1 = new Combat();
-       fight1.adversaires=adv;
+       Combat fight1 = new Combat("","",adv);
        fight1.combat(groupe);
        
        Personnage sirene = new Personnage("La sirene", 7);
@@ -103,7 +102,7 @@ public class DarkesJava {
        mermaid.rencontre(groupe,mermaid);
     
        
-       Epreuve epr = new Epreuve("Vous arrivez dans une salle et devant vous se trouve un coffre","Le coffre",1);
+       Epreuve epr = new Epreuve("Vous arrivez dans une salle et devant vous se trouve un coffre","Le coffre",1,"I am  trial");
        epr.epreuve(groupe);
        
     }
