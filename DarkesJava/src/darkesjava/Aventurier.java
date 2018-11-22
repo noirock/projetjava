@@ -63,9 +63,9 @@ public class Aventurier extends Personnage {
         pvmax=p;
     }
     String sort1;
-    public void sort1(){}
+    public void sort1(Aventurier[] a, Ennemi[] e){}
     String sort2;
-    public void sort2(){}
+    public void sort2(Aventurier[] a, Ennemi[] e){}
     Integer cd1;
     Integer cd2;
 

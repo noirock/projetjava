@@ -20,7 +20,7 @@ public class Nain extends Aventurier{
         cd1=0;
         cd2=0;
     }
-    public void sort1(){
+    public void sort1(Aventurier[] a, Ennemi[] e){
         if(action(getIntelligence(),10)==1){
             resistance=3;
             System.out.println(getNom()+" gagne en résistance!");
@@ -29,7 +29,7 @@ public class Nain extends Aventurier{
             System.out.println(getNom()+" rate son sort...");
         }
     }
-    public void sort2(){
+    public void sort2(Aventurier[] a, Ennemi[] e){
         if(action(getIntelligence(),10)==1){
             provocation=3;
             System.out.println(getNom()+" provoque les ennemis pour qu'ils l'attaquent et oublient ses alliés!");
