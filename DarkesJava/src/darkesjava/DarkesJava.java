@@ -31,9 +31,9 @@ public class DarkesJava {
     public static void main(String[] args) {
         // TODO code application logic here
         
-       Aventurier nain = new Aventurier("Gurdil", 11, 70, 40, 50);
-       Aventurier elfe = new Aventurier("Tirael", 8, 50, 70, 40);
-       Aventurier mage = new Aventurier("Bandoulf", 7, 40, 50, 70);
+       Aventurier nain = new Aventurier("Gurdil", 13, 70, 40, 50);
+       Aventurier elfe = new Aventurier("Tirael", 10, 50, 70, 40);
+       Aventurier mage = new Aventurier("Bandoulf", 9, 40, 50, 70);
        
        Aventurier[] groupe=new Aventurier[3];
        groupe[0]=nain;
