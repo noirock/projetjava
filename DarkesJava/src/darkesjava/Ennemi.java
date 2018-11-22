@@ -22,18 +22,25 @@ public class Ennemi extends Personnage {
     public String getCri(){
         return cri;
     }
-    public void attaque(Personnage[] groupe){
+    public void attaque(Aventurier[] groupe){
      //faire un switch, cf labw1
      //et oué
-
+     
      Random rand = new Random();
      int n = rand.nextInt(groupe.length);
      while (groupe[n].getPV()<=0){
          n = rand.nextInt(groupe.length);
      }
+     int p=0;
+     for (int i=0; i<groupe.length; i++){
+         if ((groupe[i].provocation>0)&&(p<groupe[i].provocation)){
+             n=i;
+             p=groupe[i].provocation;
+         }
+     }
      System.out.println(getNom()+" attaque");
      Random jet = new Random();
-     int touche = jet.nextInt(101);
+     int touche = jet.nextInt(101); //de a 101 faces parce que disney
      if (touche>=adresse){
         groupe[n].modifPV(-attaque);
         groupe[n].parle("AIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!");

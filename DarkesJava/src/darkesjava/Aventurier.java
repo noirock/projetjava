@@ -17,12 +17,14 @@ public class Aventurier extends Personnage {
     private int force;
     private int adresse;
     private int intelligence;
+    int provocation;
     
     public Aventurier(String nom, int pv, int fo, int ad, int in){
         super(nom, pv);
         this.force=fo;
         this.adresse=ad;
         this.intelligence=in;
+        this.provocation=0;
     }
     
     

@@ -11,9 +11,10 @@ package darkesjava;
  */
 public class Nain extends Aventurier{
     int resistance;
-    int provocation;
     public Nain(String nom, int pv, int fo, int ad, int in){
         super(nom, pv, fo, ad, in);
+        resistance=0;
+        provocation=0;
     }
     public void resistance(){
         if(action(getIntelligence(),10)==1){
