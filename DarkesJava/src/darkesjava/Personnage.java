@@ -28,6 +28,7 @@ public class Personnage {
         pv=pv+b;
     }
     
+    
     public void sePresenter(){
         System.out.println("Salutations, mon nom est " + getNom());
     }

@@ -43,6 +43,15 @@ public class Aventurier extends Personnage {
     public int getIntelligence(){
         return intelligence;
     }
+    public void changeAdresse(int a){
+        adresse = adresse + a;
+    }
+    public void changeForce(int a){
+        adresse = adresse + a;
+    }
+    public void changeIntelligence(int a){
+        adresse = adresse + a;
+    }
     
     public void coup(Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
