@@ -12,7 +12,7 @@ package darkesjava;
 public class Evenement {
     String titre;
     String intro;
-    public void Evenement(String titr, String in){
+    public Evenement(String titr, String in){
         this.titre=titr;
         this.intro=in;
     }

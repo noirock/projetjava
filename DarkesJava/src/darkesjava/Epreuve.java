@@ -12,15 +12,13 @@ import java.util.Scanner;
  *
  * @author Justin Duban
  */
-public class Epreuve {
-    String titre;
-    String intro;
+public class Epreuve extends Evenement{
     String description;
     Integer type;
     
     
-    Epreuve(String in,String de,Integer ty){
-        this.intro=in;
+    Epreuve(String in,String de,Integer ty,String tit){
+        super(in,tit);
         this.description=de;
         this.type= ty;
     }
