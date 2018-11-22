@@ -66,6 +66,9 @@ public class Aventurier extends Personnage {
     public void sort1(){}
     String sort2;
     public void sort2(){}
+    Integer cd1;
+    Integer cd2;
+
     public void coup(Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
         System.out.println("Cible de "+getNom()+" :");

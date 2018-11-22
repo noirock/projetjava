@@ -17,6 +17,8 @@ public class Nain extends Aventurier{
         provocation=0;
         sort1 = " Resistance ";
         sort2 = " Provocation ";
+        cd1=0;
+        cd2=0;
     }
     public void sort1(){
         if(action(getIntelligence(),10)==1){

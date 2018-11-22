@@ -12,6 +12,10 @@ package darkesjava;
 public class Mage extends Aventurier{
     public Mage(String nom, int pv, int fo, int ad, int in){
         super(nom, pv, fo, ad, in);
+        sort1 = " Boule de feu ";
+        sort2 = " Choc de flamme ";
+        cd1=0;
+        cd2=0;
     }
     String sort1 = " Boule de feu ";
     public void sort1(Ennemi adversaire){

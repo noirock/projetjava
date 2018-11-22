@@ -13,6 +13,7 @@ public class Ennemi extends Personnage {
     private Integer attaque;
     private Integer adresse;
     private String cri;
+    
     public Ennemi(String nom, int pv, int atk,int adr, String c){
         super(nom, pv);
         this.attaque=atk;

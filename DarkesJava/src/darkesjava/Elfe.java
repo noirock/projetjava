@@ -12,6 +12,10 @@ package darkesjava;
 public class Elfe extends Aventurier{
     public Elfe(String nom, int pv, int fo, int ad, int in){
         super(nom, pv, fo, ad, in);
+        sort1 = " Soin concentré ";
+        sort2 = " Soin de masse ";
+        cd1=0;
+        cd2=0;
     }
     String sort1 = " Soin ";
     public void sort1(Aventurier compagnon){
