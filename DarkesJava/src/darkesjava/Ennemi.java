@@ -10,11 +10,13 @@ import java.util.Random;
  * @author Justin Duban
  */
 public class Ennemi extends Personnage {
-    private String attaque;
+    private Integer attaque;
+    private Integer adresse;
     private String cri;
-    public Ennemi(String nom, int pv, String atk, String c){
+    public Ennemi(String nom, int pv, int atk,int adr, String c){
         super(nom, pv);
         this.attaque=atk;
+        this.adresse=adr;
         this.cri=c;
     }
     public String getCri(){
@@ -29,11 +31,17 @@ public class Ennemi extends Personnage {
      while (groupe[n].getPV()<=0){
          n = rand.nextInt(groupe.length);
      }
-     int dmg=Integer.parseInt(attaque);
      System.out.println(getNom()+" attaque");
-     groupe[n].modifPV(-dmg);
-     groupe[n].parle("AIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!");
-     System.out.println(groupe[n].getNom() + " perd "+ dmg + "PV");
+     Random jet = new Random();
+     int touche = jet.nextInt(101);
+     if (touche>=adresse){
+        groupe[n].modifPV(-attaque);
+        groupe[n].parle("AIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!");
+        System.out.println(groupe[n].getNom() + " perd "+ attaque + "PV");
+     }
+     else{
+         System.out.println("Mais loupe sa cible");
+     }
          
     
     }
