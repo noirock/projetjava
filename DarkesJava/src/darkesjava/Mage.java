@@ -20,15 +20,15 @@ public class Mage extends Aventurier{
     String sort1 = " Boule de feu ";
     public void sort1(Ennemi adversaire){
         if(action(getIntelligence(),10)==1){
-            adversaire.modifPV(-5);
+            adversaire.modifPV(getIntelligence()/7);
             System.out.println(adversaire.getCri());
-            System.out.println(adversaire.getNom()+" perd 5 points de vie");
+            System.out.println(adversaire.getNom()+" perd "+getIntelligence()/7+" points de vie");
         }
         else{
             System.out.println(getNom()+" rate son sort");
         }
     }
-    String sort2 = " Tourbillon ";
+    String sort2 = " Choc de flamme ";
     public void sort2(Ennemi[] groupe){
         if(action(getIntelligence(),10)==1){
             for(int i=0; i<groupe.length; i++){
