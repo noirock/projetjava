@@ -30,9 +30,9 @@ public class Aventurier extends Personnage {
         Random rand = new Random();
         int n = rand.nextInt(100) + 1;
         if (stat+difficulté<n){//echec
-            return 1;
+            return 0;
         }
-        return 2; //succès
+        return 1; //succès
     }
         public int getForce(){
         return force;
@@ -49,7 +49,12 @@ public class Aventurier extends Personnage {
         System.out.println("Cible de "+getNom()+" :");
         for(int i=0; i<mechant.length; i++){
             if (mechant[i].getPV()>0){
-                System.out.println(mechant[i].getNom() + " " + mechant[i].getPV() + "pv : " + i);
+                if(action(adresse, 0)==1){ 
+                    System.out.println(mechant[i].getNom() + " " + mechant[i].getPV() + "pv : " + i);
+                }
+                else{
+                    System.out.println(mechant[i].getNom() + " esquive!");
+                }
             }
         }
         int j = 10;
