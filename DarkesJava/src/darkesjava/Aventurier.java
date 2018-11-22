@@ -17,6 +17,7 @@ public class Aventurier extends Personnage {
     private int force;
     private int adresse;
     private int intelligence;
+    protected int pvmax;
     int provocation;
     
     public Aventurier(String nom, int pv, int fo, int ad, int in){
@@ -24,6 +25,7 @@ public class Aventurier extends Personnage {
         this.force=fo;
         this.adresse=ad;
         this.intelligence=in;
+        this.pvmax=pv;
         this.provocation=0;
     }
     
@@ -36,7 +38,7 @@ public class Aventurier extends Personnage {
         }
         return 1; //succès
     }
-        public int getForce(){
+    public int getForce(){
         return force;
     }
     public int getAdresse(){
@@ -54,7 +56,12 @@ public class Aventurier extends Personnage {
     public void changeIntelligence(int a){
         adresse = adresse + a;
     }
-    
+    public int getPVmax(){
+        return pvmax;
+    }
+    public void modifPVmax(int p){
+        pvmax=p;
+    }
     public void coup(Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
         System.out.println("Cible de "+getNom()+" :");
