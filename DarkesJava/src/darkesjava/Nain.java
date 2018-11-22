@@ -15,8 +15,9 @@ public class Nain extends Aventurier{
         super(nom, pv, fo, ad, in);
         resistance=0;
         provocation=0;
+        sort1 = " Resistance ";
+        sort2 = " Provocation ";
     }
-    String sort1 = " Resistance ";
     public void sort1(){
         if(action(getIntelligence(),10)==1){
             resistance=3;
@@ -26,7 +27,6 @@ public class Nain extends Aventurier{
             System.out.println(getNom()+" rate son sort...");
         }
     }
-    String sort2 = " Provocation ";
     public void sort2(){
         if(action(getIntelligence(),10)==1){
             provocation=3;
