@@ -31,14 +31,14 @@ public class DarkesJava {
     public static void main(String[] args) {
         // TODO code application logic here
         
-       Aventurier nain = new Aventurier("Gurdil", 13, 70, 40, 50);
-       Aventurier elfe = new Aventurier("Tirael", 10, 50, 70, 40);
-       Aventurier mage = new Aventurier("Bandoulf", 9, 40, 50, 70);
+       Nain Gurdil = new Nain("Gurdil", 11, 70, 40, 50);
+       Elfe Tirael = new Elfe("Tirael", 8, 50, 70, 40);
+       Mage Bandoulf = new Mage("Bandoulf", 7, 40, 50, 70);
        
        Aventurier[] groupe=new Aventurier[3];
-       groupe[0]=nain;
-       groupe[1]=elfe;
-       groupe[2]=mage;
+       groupe[0]=Gurdil;
+       groupe[1]=Tirael;
+       groupe[2]=Bandoulf;
       
    
        Ennemi gobl1 = new Ennemi("Zibli", 5, 2, 40, "Garboulag!");
