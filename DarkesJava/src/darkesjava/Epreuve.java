@@ -31,7 +31,9 @@ public class Epreuve {
         Scanner aventurier = new Scanner(System.in);
         System.out.println("Quel personnage voullez vous envoyer pour fouiller "+description +"?");
         for (int i=0;i<groupe.length;i++){
-            System.out.println("pour "+groupe[i].getNom()+" taper "+ i);
+            if(groupe[i].getPV()>0){
+                System.out.println("pour "+groupe[i].getNom()+" taper "+ i);
+            }
         }
         int j =10;
         int c = 10;
@@ -61,6 +63,9 @@ public class Epreuve {
                 System.out.println("Coup dur "+groupe[c].getNom()+" donne un coup dans "+description+ " mais son manque de force résulte à une écharde dans le doigt, il perd 2 pv");
                 groupe[c].modifPV(-2);
                 System.out.println(groupe[c].getNom()+" est maintenant à"+groupe[c].getPV()+" PV");
+                if (groupe[c].getPV()<=0){
+                    System.out.println(groupe[c].getNom()+" n'était pas assez fort, sa mort était inévitable");
+                }
             }
         }
         else if (type==1){
@@ -76,6 +81,9 @@ public class Epreuve {
                 System.out.println("Coup dur "+groupe[c].getNom()+" s'enerve face à "+description+ " n'étant pas suffisement intelligent pour résoudre ce problème il se tape la tête et perd 2 pv");
                 groupe[c].modifPV(-2);
                 System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getPV()+" PV");
+                if (groupe[c].getPV()<=0){
+                    System.out.println(groupe[c].getNom()+" n'était pas assez fort, sa mort était inévitable");
+                }
             }
             
         }
@@ -92,6 +100,9 @@ public class Epreuve {
                 System.out.println("Coup dur "+groupe[c].getNom()+" trébuche en allant vers "+description+ " et s'assome en tombant par son manque d'adresse il perd 2 pv");
                 groupe[c].modifPV(-2);
                 System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getPV()+" PV");
+                if (groupe[c].getPV()<=0){
+                    System.out.println(groupe[c].getNom()+" n'était pas assez fort, sa mort était inévitable");
+                }
             }
         }
     }

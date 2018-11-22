@@ -30,7 +30,7 @@ public class Personnage {
     
     
     public void sePresenter(){
-        System.out.println("Salutations, mon nom est " + getNom());
+        System.out.println("Salutations, je suis " + getNom());
     }
     public void parle(String s){
         System.out.println(getNom() + ": " + s);

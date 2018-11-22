@@ -49,17 +49,24 @@ public class Rencontre {
         Random rand = new Random();
         int n = rand.nextInt(3);
         if (n==c){
-            System.out.println("felicitation vous réussisez l'épreuve sans soucis grâce a linventivité de"+groupe[n].getNom()+"vous vous soignez de 3pv sur chacun de vos aventuriers");
+            System.out.println("felicitation vous réussisez l'épreuve sans soucis grâce a l'inventivité de"+groupe[n].getNom()+" "+ rencontre.pnj.getNom()+" vous accorde un enchantement de 3pv sur chacun de vos aventuriers");
             for (int i=0;i<groupe.length;i++){
-                groupe[i].modifPV(3);
-                System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" PV");
+                if (groupe[i].getPV()>0){
+                    groupe[i].modifPV(3);
+                    System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" PV");
+                }
             }
         }
         else{
             System.out.println("En essayant une approche "+groupe[c].getNom()+" enerve "+rencontre.pnj.getNom()+" qui vous lance un sort et vous fait perdre 1pv a chacun de vos aventuriers");
             for (int i=0;i<groupe.length;i++){
-                groupe[i].modifPV(-1);
-                System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" PV");
+                if (groupe[i].getPV()>0){
+                    groupe[i].modifPV(-1);
+                    System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" PV");
+                    if (groupe[i].getPV()<=0){
+                    System.out.println(groupe[i].getNom()+" n'était pas assez fort, sa mort était inévitable");
+                }
+                }
             }
         }
         
