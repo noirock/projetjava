@@ -7,6 +7,7 @@
 package darkesjava;
 
 import static darkesjava.DarkesJava.groupeVivant;
+import java.util.Scanner;
 
 /**
  *
@@ -22,7 +23,9 @@ public class Combat extends Evenement{
         this.adversaires=advs;
     }
     public void combat(Aventurier[] groupe){
-        System.out.println("Début du combat!!!");
+        
+        Scanner choi = new Scanner(System.in);
+        System.out.println(intro);
         for (int i=0;i<groupe.length;i++){
                 System.out.println(groupe[i].getNom()+" est actuellement à "+groupe[i].getPV()+" PV");
         }
@@ -32,6 +35,8 @@ public class Combat extends Evenement{
                 if (v==0){
                     if(groupe[i].getPV()>0){
                         System.out.println("Choisir une action pour "+groupe[i].getNom()+" :"+groupe[i].sort1+"(a),"+groupe[i].sort1+"(b), Attaque physique (c)");
+                        String c=choi.nextLine();
+                        
                         groupe[i].coup(adversaires);
                         if (groupeVivant(adversaires)==false){
                             v=1;
