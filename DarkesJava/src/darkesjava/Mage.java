@@ -33,9 +33,9 @@ public class Mage extends Aventurier{
         if(action(getIntelligence(),10)==1){
             for(int i=0; i<groupe.length; i++){
                 if(groupe[i].pv>0){
-                    groupe[i].modifPV(-2);
+                    groupe[i].modifPV(getIntelligence()/20);
                     System.out.println(groupe[i].getCri());
-                    System.out.println(groupe[i].getNom()+" perd 2 points de vie");    
+                    System.out.println(groupe[i].getNom()+" perd "+getIntelligence()/20+" points de vie");    
                 }  
             }
         }
