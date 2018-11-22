@@ -26,10 +26,10 @@ public class Aventurier extends Personnage {
     }
     
     
-    public int action(int stat, float difficulté){
+    public int action(int stat, float bonus){
         Random rand = new Random();
         int n = rand.nextInt(100) + 1;
-        if (stat+difficulté<n){//echec
+        if (stat+bonus<n){//echec
             return 0;
         }
         return 1; //succès
@@ -49,12 +49,7 @@ public class Aventurier extends Personnage {
         System.out.println("Cible de "+getNom()+" :");
         for(int i=0; i<mechant.length; i++){
             if (mechant[i].getPV()>0){
-                if(action(adresse, 0)==1){ 
-                    System.out.println(mechant[i].getNom() + " " + mechant[i].getPV() + "pv : " + i);
-                }
-                else{
-                    System.out.println(mechant[i].getNom() + " esquive!");
-                }
+                System.out.println(mechant[i].getNom() + " " + mechant[i].getPV() + "pv : " + i);
             }
         }
         int j = 10;
@@ -69,8 +64,13 @@ public class Aventurier extends Personnage {
                 }
             else{System.out.println("Veuillez choisir une des cibles proposées");}}   
         }
-        mechant[j].modifPV(-force/10);
-        System.out.println(mechant[j].getCri());
-        System.out.println(mechant[j].getNom() + " perds " +(force/10)+"PV");
+        if(action(adresse, 20)==1){ 
+            mechant[j].modifPV(-force/10);
+            System.out.println(mechant[j].getCri());
+            System.out.println(mechant[j].getNom() + " perds " +(force/10)+"PV");
+        }
+        else {
+            System.out.println(mechant[j].getNom() + " esquive!");
+        }
     }
 }

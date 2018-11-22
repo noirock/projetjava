@@ -41,9 +41,9 @@ public class DarkesJava {
        groupe[2]=mage;
       
    
-       Ennemi gobl1 = new Ennemi("Zibli", 7, "2", "Garboulag!");
-       Ennemi gobl2 = new Ennemi("Billi", 7, "2", "Garboulug!");
-       Ennemi gobl3 = new Ennemi("Guili", 7, "2", "Garboulog!");
+       Ennemi gobl1 = new Ennemi("Zibli", 5, "2", "Garboulag!");
+       Ennemi gobl2 = new Ennemi("Billi", 5, "2", "Garboulug!");
+       Ennemi gobl3 = new Ennemi("Guili", 5, "2", "Garboulog!");
        Ennemi[] adv = new Ennemi [3];
        adv[0]=gobl1;
        adv[1]=gobl2;
