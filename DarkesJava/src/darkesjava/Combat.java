@@ -31,6 +31,7 @@ public class Combat extends Evenement{
             for(int i=0; i<groupe.length;i++){
                 if (v==0){
                     if(groupe[i].getPV()>0){
+                        System.out.println("Choisir une action pour "+groupe[i].getNom()+" :"+groupe[i].sort1+"(a),"+groupe[i].sort1+"(b), Attaque physique (c)");
                         groupe[i].coup(adversaires);
                         if (groupeVivant(adversaires)==false){
                             v=1;

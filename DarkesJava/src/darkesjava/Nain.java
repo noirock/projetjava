@@ -16,7 +16,8 @@ public class Nain extends Aventurier{
         resistance=0;
         provocation=0;
     }
-    public void resistance(){
+    String sort1 = " Resistance ";
+    public void sort1(){
         if(action(getIntelligence(),10)==1){
             resistance=3;
             System.out.println(getNom()+" gagne en résistance!");
@@ -25,7 +26,8 @@ public class Nain extends Aventurier{
             System.out.println(getNom()+" rate son sort...");
         }
     }
-    public void provocation(){
+    String sort2 = " Provocation ";
+    public void sort2(){
         if(action(getIntelligence(),10)==1){
             provocation=3;
             System.out.println(getNom()+" provoque les ennemis pour qu'ils l'attaquent et oublient ses alliés!");
