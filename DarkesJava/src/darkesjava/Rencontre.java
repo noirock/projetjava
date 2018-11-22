@@ -49,7 +49,7 @@ public class Rencontre {
         Random rand = new Random();
         int n = rand.nextInt(3);
         if (n==c){
-            System.out.println("felicitation vous réussisez l'épreuve sans soucis grâce a linventivité de"+groupe[n].getNom()+"vous vous soignez de 3pv sur chacun de vos aventuriers");
+            System.out.println("felicitation vous réussisez l'épreuve sans soucis grâce a l'inventivité de"+groupe[n].getNom()+" "+ rencontre.pnj.getNom()+" vous accorde un enchantement de 3pv sur chacun de vos aventuriers");
             for (int i=0;i<groupe.length;i++){
                 groupe[i].modifPV(3);
                 System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" PV");
