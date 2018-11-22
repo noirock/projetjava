@@ -20,8 +20,8 @@ public class Elfe extends Aventurier{
     String sort1 = " Soin ";
     public void sort1(Aventurier compagnon){
         if(action(getIntelligence(),10)==1){
-            compagnon.modifPV(5);
-            System.out.println(compagnon.getNom()+" gagne 5 points de vie");
+            compagnon.modifPV(getIntelligence()/7);
+            System.out.println(compagnon.getNom()+" gagne 5"+getIntelligence()/7+" points de vie");
         }
         else{
             System.out.println(getNom()+" rate son sort");
@@ -32,8 +32,8 @@ public class Elfe extends Aventurier{
         if(action(getIntelligence(),10)==1){
             for(int i=0; i<groupe.length; i++){
                 if(groupe[i].pv>0){
-                    groupe[i].modifPV(2);
-                    System.out.println(groupe[i].getNom()+" gagne 2 points de vie");    
+                    groupe[i].modifPV(getIntelligence()/20);
+                    System.out.println(groupe[i].getNom()+" gagne "+getIntelligence()/20+" points de vie");    
                 }  
             }
         }
