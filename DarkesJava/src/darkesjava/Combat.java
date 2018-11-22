@@ -12,13 +12,13 @@ import static darkesjava.DarkesJava.groupeVivant;
  *
  * @author Justin Duban
  */
-public class Combat{
+public class Combat extends Evenement{
     String titre;
     String intro;
     Ennemi[] adversaires;
-    public void Combat(String titre, String intro, Ennemi[] advs){
-        this.titre=titre;
-        this.intro=intro;
+    public void Combat(String titr, String in, Ennemi[] advs){
+        this.titre=titr;
+        this.intro=in;
         this.adversaires=advs;
     }
     public void combat(Aventurier[] groupe){
