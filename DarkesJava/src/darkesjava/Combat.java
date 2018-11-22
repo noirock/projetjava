@@ -6,6 +6,8 @@
  */
 package darkesjava;
 
+import static darkesjava.DarkesJava.groupeVivant;
+
 /**
  *
  * @author Justin Duban
@@ -14,4 +16,34 @@ public class Combat{
     String titre;
     String intro;
     Ennemi[] adversaires;
+    public void combat(Aventurier[] groupe){
+        System.out.println("Début du combat!!!");
+        int v =0;
+        while(v==0){
+            for(int i=0; i<groupe.length;i++){
+                if (v==0){
+                    if(groupe[i].getPV()>0){
+                        groupe[i].coup(adversaires);
+                        if (groupeVivant(adversaires)==false){
+                            v=1;
+                            i=groupe.length;
+                            System.out.println("Victoire!!!");
+                        }
+                    }
+                }
+            }
+            for(int i=0; i<adversaires.length;i++){
+                if (v==0){
+                    if(adversaires[i].getPV()>0){
+                        adversaires[i].attaque(groupe);
+                        if(groupeVivant(groupe)==false){
+                            v=1;
+                            i=adversaires.length;
+                            System.out.println("Défaite...");
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
