@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Personnage {
     private String nom;
-    private int pv;
+    protected int pv;
     
     Personnage(String n, int p){
         this.nom=n;
