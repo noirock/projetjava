@@ -12,18 +12,15 @@ import java.util.Scanner;
  *
  * @author Justin Duban
  */
-public class Rencontre {
-    String titre;
-    String intro;
+public class Rencontre extends Evenement{
     String defi;
     Personnage pnj;
-    Rencontre(String in, String de, Personnage r){
-        this.intro=in;
+    Rencontre(String titr,String in, String de, Personnage r){
+        super(titr,in);
         this.defi=de;
         this.pnj=r;
     }
         public void rencontre(Aventurier[] groupe, Rencontre rencontre){
-        System.out.println(rencontre.intro);
         rencontre.pnj.sePresenter();
         rencontre.pnj.parle(rencontre.defi);
         Scanner aventurier = new Scanner(System.in);

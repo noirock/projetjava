@@ -75,7 +75,7 @@ public class DarkesJava {
        fight1.combat(groupe);
        
        Personnage sirene = new Personnage("La sirene", 7);
-       Rencontre mermaid = new Rencontre("Vous arrivez dans une grotte, vous entendez l'eau couler d'un lac proche et une silhouette se dessine au bord de l'eau", "Bonjour étrangers, que faites-vous en mon domaine?", sirene);
+       Rencontre mermaid = new Rencontre("la sirène","Vous arrivez dans une grotte, vous entendez l'eau couler d'un lac proche et une silhouette se dessine au bord de l'eau", "Bonjour étrangers, que faites-vous en mon domaine?", sirene);
        mermaid.rencontre(groupe,mermaid);
     
        
