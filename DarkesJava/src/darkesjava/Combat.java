@@ -7,6 +7,7 @@
 package darkesjava;
 
 import static darkesjava.DarkesJava.groupeVivant;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -16,13 +17,37 @@ import java.util.Scanner;
 public class Combat extends Evenement{
     String titre;
     String intro;
-    Ennemi[] adversaires;
-    public Combat(String titr, String in, Ennemi[] advs){
+    Ennemi[] liste;
+    public Combat(String titr, String in, Ennemi[] adv){
         super(titr, in);
-        this.adversaires=advs;
+        this.liste=adv;
     }
     public void combat(Aventurier[] groupe){
         
+       Random adversaire = new Random();
+       Ennemi[] adversaires = new Ennemi [3];
+       Integer[] verif=new Integer[3];
+       verif[0]=100;
+       verif[1]=100;
+       int j =0;
+       for (int i=0;i<3;i++){
+           j=0;
+           while (j==0){
+               
+               int k=adversaire.nextInt(liste.length);
+               if (k==verif[0]){
+                   j=0;
+               }
+               else if (k== verif[1]){
+                   j=0;
+               }
+               else{
+                   adversaires[i]=liste[k];
+                   verif[i]=k;
+                   j=1;
+               }
+           }  
+       }
         Scanner choi = new Scanner(System.in);
         
         for (int i=0;i<groupe.length;i++){

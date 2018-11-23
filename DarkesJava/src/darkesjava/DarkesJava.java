@@ -70,31 +70,8 @@ public class DarkesJava {
        liste[4]=troll2;
        liste[5]=troll3;
        
-       Random adversaire = new Random();
-       Ennemi[] adv = new Ennemi [3];
-       Integer[] verif=new Integer[3];
-       verif[0]=100;
-       verif[1]=100;
-       int j =0;
-       for (int i=0;i<3;i++){
-           j=0;
-           while (j==0){
-               
-               int k=adversaire.nextInt(liste.length);
-               if (k==verif[0]){
-                   j=0;
-               }
-               else if (k== verif[1]){
-                   j=0;
-               }
-               else{
-                   adv[i]=liste[k];
-                   verif[i]=k;
-                   j=1;
-               }
-           }  
-       }
-       Combat fight1 = new Combat("Le combat se déclenche contre ","Le combat se déclenche contre ",adv);
+       
+       Combat fight1 = new Combat("Le combat se déclenche contre ","Le combat se déclenche contre ",liste);
        fight1.combat(groupe);
        
        Personnage sirene = new Personnage("La sirene", 7);

@@ -29,6 +29,14 @@ public class Aventurier extends Personnage {
         this.provocation=0;
     }
     
+    public void mort(){
+        changeAdresse(-getAdresse());
+        changeForce(-getForce());
+        changeIntelligence(-getIntelligence());
+        modifPV(-getPV());
+        modifPVmax(-getPVmax());
+        System.out.println(getNom()+" n'était pas assez fort, sa mort était inévitable");
+    }
     
     public int action(int stat, float bonus){
         Random rand = new Random();

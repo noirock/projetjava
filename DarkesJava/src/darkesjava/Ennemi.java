@@ -48,7 +48,7 @@ public class Ennemi extends Personnage {
         System.out.println(groupe[n].getNom() + " perd "+ attaque + "PV");
         System.out.println(groupe[n].getNom()+ " est maintenant à "+groupe[n].getPV()+" PV");
         if (groupe[n].getPV()<=0){
-                    System.out.println(groupe[n].getNom()+" n'était pas assez fort, sa mort était inévitable");
+                    groupe[n].mort();
                 }
      }
      else{

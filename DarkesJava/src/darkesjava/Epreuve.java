@@ -62,7 +62,7 @@ public class Epreuve extends Evenement{
                 groupe[c].modifPV(-2);
                 System.out.println(groupe[c].getNom()+" est maintenant à"+groupe[c].getPV()+" PV");
                 if (groupe[c].getPV()<=0){
-                    System.out.println(groupe[c].getNom()+" n'était pas assez fort, sa mort était inévitable");
+                    groupe[c].mort();
                 }
             }
         }
@@ -80,7 +80,7 @@ public class Epreuve extends Evenement{
                 groupe[c].modifPV(-2);
                 System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getPV()+" PV");
                 if (groupe[c].getPV()<=0){
-                    System.out.println(groupe[c].getNom()+" n'était pas assez fort, sa mort était inévitable");
+                    groupe[c].mort();
                 }
             }
             
@@ -99,7 +99,7 @@ public class Epreuve extends Evenement{
                 groupe[c].modifPV(-2);
                 System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getPV()+" PV");
                 if (groupe[c].getPV()<=0){
-                    System.out.println(groupe[c].getNom()+" n'était pas assez fort, sa mort était inévitable");
+                    groupe[c].mort();
                 }
             }
         }

@@ -53,7 +53,6 @@ public class Rencontre {
             for (int i=0;i<groupe.length;i++){
                 if (groupe[i].getPV()>0){
                     groupe[i].modifPV(3);
-                    System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" PV");
                 }
             }
         }
@@ -64,12 +63,10 @@ public class Rencontre {
                     groupe[i].modifPV(-1);
                     System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" PV");
                     if (groupe[i].getPV()<=0){
-                    System.out.println(groupe[i].getNom()+" n'était pas assez fort, sa mort était inévitable");
-                }
+                        groupe[i].mort();
+                    }
                 }
             }
         }
-        
     }
-    
 }
