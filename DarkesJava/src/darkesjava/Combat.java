@@ -15,8 +15,6 @@ import java.util.Scanner;
  * @author Justin Duban
  */
 public class Combat extends Evenement{
-    String titre;
-    String intro;
     Ennemi[] liste;
     public Combat(String titr, String in, Ennemi[] adv){
         super(titr, in);
