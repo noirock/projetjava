@@ -42,7 +42,10 @@ public class Elfe extends Aventurier{
         }
         if(action(getIntelligence(),10)==1){
             groupe[j].modifPV(getIntelligence()/7);
-            System.out.println(groupe[j].getNom()+" gagne 5"+getIntelligence()/7+" points de vie");
+            if (groupe[j].getPV()>groupe[j].getPVmax()){
+                groupe[j].modifPV(groupe[j].getPVmax()-groupe[j].getPV());
+            }
+            System.out.println(groupe[j].getNom()+" est maintenant à "+groupe[j].getPV()+" points de vie");
         }
         else{
             System.out.println(getNom()+" rate son sort");
@@ -54,7 +57,10 @@ public class Elfe extends Aventurier{
             for(int i=0; i<groupe.length; i++){
                 if(groupe[i].pv>0){
                     groupe[i].modifPV(getIntelligence()/20);
-                    System.out.println(groupe[i].getNom()+" gagne "+getIntelligence()/20+" points de vie");    
+                    if (groupe[i].getPV()>groupe[i].getPVmax()){
+                        groupe[i].modifPV(groupe[i].getPVmax()-groupe[i].getPV());
+                    }
+                    System.out.println(groupe[i].getNom()+" est maintenant à "+groupe[i].getPV()+" points de vie");    
                 }  
             }
         }
