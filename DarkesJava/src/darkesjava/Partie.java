@@ -57,7 +57,7 @@ public class Partie {
         while(sortie != true){
             int i = 0;
             System.out.println("Aventuriers disponibles :");
-            while(disponibles[i].pvmax!=0){
+            while(i!=disponibles.length){
                 System.out.print(i+": "+disponibles[i].getNom()+", PV:"+disponibles[i].pvmax+", Force:"+disponibles[i].getForce()+", Intelligence:"+disponibles[i].getIntelligence()+", Adresse:"+disponibles[i].getAdresse()+" | ");
                 i++;
             }
@@ -73,26 +73,28 @@ public class Partie {
                 if(s.length() !=0){
                     char touche = s.charAt(0);
                     if ((touche<='9') && (touche>='0')){
+                        String stouche=String.valueOf(touche);
+                        int touch=Integer.parseInt(stouche);
                         if (totalOr<100){
                             i=0;
                             System.out.println("Pas assez d'or...");
                         }
-                        else if (disponibles[i].pvmax!=0){
+                        else if (disponibles[touch].pvmax!=0){
                             i=0;
                             System.out.println("Choisir personnage à remplacer:");
                             for(int j=0; j<groupe.length; j++){
                                 System.out.print(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
                             }
+                            System.out.println();
                             char apuce ='e';
                             do{
                                 String sapuce = entree.nextLine();
                                 if(sapuce.length() !=0){
-                                    apuce = entree.nextLine().charAt(0);
+                                    apuce = sapuce.charAt(0);
                                 }
                             } while((apuce!='0')&&(apuce!='1')&&(apuce!='2'));
                             String sapuce=String.valueOf(apuce);
-                            String stouche=String.valueOf(touche);
-                            groupe[Integer.parseInt(sapuce)]=disponibles[Integer.parseInt(stouche)];//!\/!\/!\/!\/!\/!\/!\/!\/!\!/\!/!\/!\/!\/!\!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
+                            groupe[Integer.parseInt(sapuce)]=disponibles[touch];//!\/!\/!\/!\/!\/!\/!\/!\/!\!/\!/!\/!\/!\/!\!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
                         }
                     }
                     else if(touche=='X'){

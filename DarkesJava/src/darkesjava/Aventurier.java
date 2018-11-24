@@ -60,10 +60,10 @@ public class Aventurier extends Personnage {
         adresse = adresse + a;
     }
     public void changeForce(int a){
-        adresse = adresse + a;
+        force = force + a;
     }
     public void changeIntelligence(int a){
-        adresse = adresse + a;
+        intelligence = intelligence + a;
     }
     public int getPVmax(){
         return pvmax;
