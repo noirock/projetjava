@@ -50,6 +50,7 @@ public class Combat extends Evenement{
         
         for (int i=0;i<groupe.length;i++){
             System.out.println(groupe[i].getNom()+" est actuellement à "+groupe[i].getPV()+" PV");
+            groupe[i].resetcD();            
         }
         System.out.println(intro);
         for (int i=0;i<groupe.length;i++){
@@ -60,23 +61,36 @@ public class Combat extends Evenement{
             for(int i=0; i<groupe.length;i++){
                 if (v==0){
                     if(groupe[i].getPV()>0){
-                        System.out.println("Choisir une action pour "+groupe[i].getNom()+" : Attaque physique (a),"+groupe[i].sort1+"(b),"+groupe[i].sort2+"(c)");
-                        char c;
-                        do {c=choi.nextLine().charAt(0);
-                                }while((c!='a')&&(c!='b')&&(c!='c'));
-                        if (c=='a'){
-                            groupe[i].coup(adversaires);
-                        }
-                        else if (c=='b'){
-                            groupe[i].sort1(groupe, adversaires);
-                        }
-                        else{
-                            groupe[i].sort2(groupe, adversaires);
-                        }
-                        if (groupeVivant(adversaires)==false){
-                            v=1;
-                            i=groupe.length;
-                            System.out.println("Victoire!!!");
+                        int k=0;
+                        while (k==0){
+                            System.out.println("Choisir une action pour "+groupe[i].getNom()+" : Attaque physique (a),"+groupe[i].sort1+" ("+groupe[i].cd1+" tours avant utilisation possible)(b),"+groupe[i].sort2+"("+groupe[i].cd2+" tours avant utilisation possible)(c)");
+                            char c;
+                            do {c=choi.nextLine().charAt(0);
+                                    }while((c!='a')&&(c!='b')&&(c!='c'));
+                            if (c=='a'){
+                                groupe[i].coup(adversaires);
+                                groupe[i].cd1D();
+                                groupe[i].cd2D();
+                                k=1;
+                            }
+                            else if (c=='b' && groupe[i].cd1<=0){
+                                groupe[i].sort1(groupe, adversaires);
+                                groupe[i].cd2D();
+                                k=1;
+                            }
+                            else if (c=='c' && groupe[i].cd2<=0){
+                                groupe[i].sort2(groupe, adversaires);
+                                groupe[i].cd1D();
+                                k=1;
+                            }
+                            if (groupeVivant(adversaires)==false){
+                                v=1;
+                                i=groupe.length;
+                                System.out.println("Victoire!!!");
+                            }
+                            if (k==0){
+                                System.out.println("Ce sort est en recharge, il ne peut pas encore être lancer, utilisez une autre compétence");
+                            }
                         }
                     }
                 }

@@ -20,6 +20,7 @@ public class Aventurier extends Personnage {
     protected int pvmax;
     int provocation;
     
+    
     public Aventurier(String nom, int pv, int fo, int ad, int in){
         super(nom, pv);
         this.force=fo;
@@ -74,8 +75,24 @@ public class Aventurier extends Personnage {
     public void sort1(Aventurier[] a, Ennemi[] e){}
     String sort2;
     public void sort2(Aventurier[] a, Ennemi[] e){}
-    Integer cd1;
-    Integer cd2;
+    Integer cd1=0;
+    Integer cd2=0;
+    public void cd1D(){
+        cd1=cd1-1;
+        if (cd1<0){
+            cd1=0;
+        }
+    }
+    public void cd2D(){
+        cd2=cd2-1;
+        if (cd2<0){
+            cd2=0;
+        }
+    }
+    public void resetcD(){
+        cd1=0;
+        cd2=0;
+    }
 
     public void coup(Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);

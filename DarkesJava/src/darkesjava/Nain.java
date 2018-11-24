@@ -28,6 +28,7 @@ public class Nain extends Aventurier{
         else{
             System.out.println(getNom()+" rate son sort...");
         }
+        cd1=5;
     }
     public void sort2(Aventurier[] a, Ennemi[] e){
         if(action(getIntelligence(),30)==1){
@@ -37,6 +38,7 @@ public class Nain extends Aventurier{
         else{
             System.out.println(getNom()+" rate son sort...");
         }
+        cd2=4;
     }
     public void modifPV(int b){
         if(b<0){

@@ -48,6 +48,7 @@ public class Mage extends Aventurier{
         else{
             System.out.println(getNom()+" rate son sort");
         }
+        cd1=4;
     }
     public void sort2(Aventurier[] a,Ennemi[] mechant){
         if(action(getIntelligence(),10)==1){
@@ -62,6 +63,7 @@ public class Mage extends Aventurier{
         else{
             System.out.println(getNom()+" rate son sort");
         }
+        cd2=5;
     }
 }
 

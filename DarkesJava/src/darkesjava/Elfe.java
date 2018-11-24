@@ -50,6 +50,7 @@ public class Elfe extends Aventurier{
         else{
             System.out.println(getNom()+" rate son sort");
         }
+        cd1=4;
     }
 
     public void sort2(Aventurier[] groupe, Ennemi[] e){
@@ -67,5 +68,6 @@ public class Elfe extends Aventurier{
         else{
             System.out.println(getNom()+" rate son sort");
         }
+        cd1=5;
     }
 }
