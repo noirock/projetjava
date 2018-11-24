@@ -19,37 +19,40 @@ public class Partie {
     Evenement[] evenements;
     Scanner entree = new Scanner(System.in);
     public void debutPartie(){
-       Nain Gurdil = new Nain("Gurdil", 13, 70, 40, 50);
-       Nain Gunther = new Nain("Gunter", 14, 60, 50, 50);
-       Elfe Tirael = new Elfe("Tirael", 10, 50, 70, 40);
-       Elfe Touniel = new Elfe("Touniel",9, 40, 70, 50);
-       Mage Bandoulf = new Mage("Bandoulf", 7, 40, 50, 70);
-       Mage Bordur = new Mage("Bordur", 8, 55, 55, 55);
-       Aventurier[] dispos = new Aventurier[6];
-       dispos[0]=Gurdil;
-       dispos[1]=Gunther;
-       dispos[2]=Tirael;
-       dispos[3]=Touniel;
-       dispos[4]=Bandoulf;
-       dispos[5]=Bordur;
-       disponibles=dispos;
+        System.out.println("Vous arrivez dans un petit village avec votre groupe d'aventuriers, vous avez soif d'aventure et de trésors et c'est pourquoi vous venez vous confronter au...Donjon");
+        Nain Gurdil = new Nain("Gurdil", 13, 70, 40, 50);
+        Nain Gunther = new Nain("Gunter", 14, 60, 50, 50);
+        Elfe Tirael = new Elfe("Tirael", 10, 50, 70, 40);
+        Elfe Touniel = new Elfe("Touniel",9, 40, 70, 50);
+        Mage Bandoulf = new Mage("Bandoulf", 7, 40, 50, 70);
+        Mage Bordur = new Mage("Bordur", 8, 55, 55, 55);
+        Aventurier[] dispos = new Aventurier[6];
+        dispos[0]=Gurdil;
+        dispos[1]=Gunther;
+        dispos[2]=Tirael;
+        dispos[3]=Touniel;
+        dispos[4]=Bandoulf;
+        dispos[5]=Bordur;
+        disponibles=dispos;
        
-       Nain[] G= new Nain[2];
-       Elfe[] T= new Elfe[2];
-       Mage[] B= new Mage[2];
-       G[0]=Gurdil;
-       G[1]=Gunther;
-       T[0]=Tirael;
-       T[1]=Touniel;
-       B[0]=Bandoulf;
-       B[1]=Bordur;
-       
-       Aventurier[] grp=new Aventurier[3];
-       groupe=grp;
-       Random aventurier = new Random();
-       groupe[0]=G[aventurier.nextInt(2)];
-       groupe[1]=T[aventurier.nextInt(2)];
-       groupe[2]=B[aventurier.nextInt(2)];
+        Nain[] G= new Nain[2];
+        Elfe[] T= new Elfe[2];
+        Mage[] B= new Mage[2];
+        G[0]=Gurdil;
+        G[1]=Gunther;
+        T[0]=Tirael;
+        T[1]=Touniel;
+        B[0]=Bandoulf;
+        B[1]=Bordur;
+        
+        Aventurier[] grp=new Aventurier[3];
+        groupe=grp;
+        Random aventurier = new Random();
+        groupe[0]=G[aventurier.nextInt(2)];
+        groupe[1]=T[aventurier.nextInt(2)];
+        groupe[2]=B[aventurier.nextInt(2)];
+        System.out.println("Votre groupe est composé de "+groupe[0].getNom()+", "+groupe[1].getNom()+", "+groupe[2].getNom());
+        System.out.println();
     }
     public void taverne(){
         System.out.println("Bienvenue à l'auberge! Ici vous pouvez recrutez de nouveaux héros pour affronter les hordes du Donjon!");
