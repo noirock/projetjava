@@ -78,6 +78,7 @@ public class Partie {
                         if (totalOr<100){
                             i=0;
                             System.out.println("Pas assez d'or...");
+                            System.out.println();
                         }
                         else if (disponibles[touch].pvmax!=0){
                             i=0;
@@ -130,6 +131,7 @@ public class Partie {
                         if (totalOr<100){
                             i=0;
                             System.out.println("Pas assez d'or...");
+                            System.out.println();
                         }
                         else{
                             i=0;
