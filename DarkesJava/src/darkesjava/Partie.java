@@ -81,6 +81,7 @@ public class Partie {
                         }
                         else if (disponibles[touch].pvmax!=0){
                             i=0;
+                            totalOr=totalOr-100;
                             System.out.println("Choisir personnage à remplacer:");
                             for(int j=0; j<groupe.length; j++){
                                 System.out.print(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
@@ -100,6 +101,7 @@ public class Partie {
                     else if(touche=='X'){
                         i=0;
                         sortie=true;
+                        System.out.println();
                     }
                 }
             } while(i!=0);
@@ -129,32 +131,34 @@ public class Partie {
                             i=0;
                             System.out.println("Pas assez d'or...");
                         }
-                        i=0;
-                        System.out.println("Choisir personnage à équiper:");
-                        for(int j=0; j<groupe.length; j++){
-                            System.out.print(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
-                        }
-                        char apuce ='e';
-                        do{
-                            String sapuce = entree.nextLine();
-                            if(sapuce.length() !=0){
-                                apuce = sapuce.charAt(0);
+                        else{
+                            i=0;
+                            System.out.println("Choisir personnage à équiper:");
+                            for(int j=0; j<groupe.length; j++){
+                                System.out.print(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
                             }
-                        } while((apuce!='0')&&(apuce!='1')&&(apuce!='2'));
-                        String sapuce=String.valueOf(apuce);
-                        switch(touche){
-                            case '1':   groupe[Integer.parseInt(sapuce)].changeForce(5);
-                                        System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 5 de Force");
-                                        break;
-                            case '2':   groupe[Integer.parseInt(sapuce)].changeAdresse(5);
-                                        System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 5 de Adresse");
-                                        break;
-                            case '3':   groupe[Integer.parseInt(sapuce)].changeIntelligence(5);
-                                        System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 5 d'Intelligence");
-                                        break;
-                            case '4':   groupe[Integer.parseInt(sapuce)].modifPVmax(groupe[Integer.parseInt(sapuce)].getPVmax()+5);
-                                        System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 3 PV max");
-                                        break;                                    
+                            char apuce ='e';
+                            do{
+                                String sapuce = entree.nextLine();
+                                if(sapuce.length() !=0){
+                                    apuce = sapuce.charAt(0);
+                                }
+                            } while((apuce!='0')&&(apuce!='1')&&(apuce!='2'));
+                            String sapuce=String.valueOf(apuce);
+                            switch(touche){
+                                case '1':   groupe[Integer.parseInt(sapuce)].changeForce(5);
+                                            System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 5 de Force");
+                                            break;
+                                case '2':   groupe[Integer.parseInt(sapuce)].changeAdresse(5);
+                                            System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 5 de Adresse");
+                                            break;
+                                case '3':   groupe[Integer.parseInt(sapuce)].changeIntelligence(5);
+                                            System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 5 d'Intelligence");
+                                            break;
+                                case '4':   groupe[Integer.parseInt(sapuce)].modifPVmax(groupe[Integer.parseInt(sapuce)].getPVmax()+5);
+                                            System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 3 PV max");
+                                            break;                                    
+                            }
                         }
                     }
                     else if(touche=='X'){
