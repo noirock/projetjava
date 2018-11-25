@@ -18,8 +18,17 @@ public class Partie {
     Aventurier[] groupe;
     Evenement[] evenements;
     Scanner entree = new Scanner(System.in);
+    public void lancerPartie(){
+        boolean jouer=true;
+        debutPartie();
+        while(jouer==true){
+            village();
+        }
+    }
     public void debutPartie(){
         System.out.println("Vous arrivez dans un petit village avec votre groupe d'aventuriers, vous avez soif d'aventure et de trésors et c'est pourquoi vous venez vous confronter au...Donjon");
+        
+        totalOr=20;
         Nain Gurdil = new Nain("Gurdil", 13, 70, 40, 50);
         Nain Gunther = new Nain("Gunter", 14, 60, 50, 50);
         Elfe Tirael = new Elfe("Tirael", 10, 50, 70, 40);
@@ -55,6 +64,7 @@ public class Partie {
         System.out.println();
     }
     public void taverne(){
+        System.out.println();
         System.out.println("Bienvenue à l'auberge! Ici vous pouvez recrutez de nouveaux héros pour affronter les hordes du Donjon!");
         boolean sortie = false;
         while(sortie != true){
@@ -71,21 +81,21 @@ public class Partie {
             }
             System.out.println();
             do {
-                System.out.println("Engagez un nouveau personnage pour 100 po?(taper le numéro du personnage) ou Sortir?(taper X)");
+                System.out.println("Engagez un nouveau personnage pour 20 po?(taper le numéro du personnage) ou Sortir?(taper X)");
                 String s = entree.nextLine();
                 if(s.length() !=0){
                     char touche = s.charAt(0);
                     if ((touche<='9') && (touche>='0')){
                         String stouche=String.valueOf(touche);
                         int touch=Integer.parseInt(stouche);
-                        if (totalOr<100){
+                        if (totalOr<20){
                             i=0;
                             System.out.println("Pas assez d'or...");
                             System.out.println();
                         }
                         else if (disponibles[touch].pvmax!=0){
                             i=0;
-                            totalOr=totalOr-100;
+                            totalOr=totalOr-20;
                             System.out.println("Choisir personnage à remplacer:");
                             for(int j=0; j<groupe.length; j++){
                                 System.out.print(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
@@ -113,6 +123,7 @@ public class Partie {
         }
     }
     public void magasin(){
+        System.out.println();
         System.out.println("Bienvenue au magasin! Ici vous pouvez acheter de l'équippement à vos personnages pour affronter les hordes du Donjon!");
         boolean sortie = false;
         while(sortie != true){
@@ -176,6 +187,60 @@ public class Partie {
         }        
     }
     public void donjon(){
-        
+          
+   
+       Ennemi gobl1 = new Ennemi("Zibli", 5, 2, 40, "Garboulag!");
+       Ennemi gobl2 = new Ennemi("Billi", 5, 2, 40, "Garboulug!");
+       Ennemi gobl3 = new Ennemi("Guili", 5, 2, 40, "Garboulog!");
+       Ennemi troll1 = new Ennemi("Bazoul",15,4,20, "bougabouh");
+       Ennemi troll2 = new Ennemi("Tazeyl",15,4,20, "bougabouh");
+       Ennemi troll3 = new Ennemi("Razort",15,4,20, "bougabouh");
+       
+       Ennemi[] liste = new Ennemi[6];
+       liste[0]=gobl1;
+       liste[1]=gobl2;
+       liste[2]=gobl3;
+       liste[3]=troll1;
+       liste[4]=troll2;
+       liste[5]=troll3;
+       
+       
+       Combat fight1 = new Combat("Le combat se déclenche contre ","Le combat se déclenche contre ",liste);
+       fight1.combat(groupe);
+       
+       Personnage sirene = new Personnage("La sirene", 7);
+       Rencontre mermaid = new Rencontre("la sirène","Vous arrivez dans une grotte, vous entendez l'eau couler d'un lac proche et une silhouette se dessine au bord de l'eau", "Bonjour étrangers, que faites-vous en mon domaine?", sirene);
+       mermaid.rencontre(groupe,mermaid);
+    
+       
+       Epreuve epr = new Epreuve("Vous arrivez dans une salle et devant vous se trouve un coffre","Le coffre",1,"I am a trial");
+       epr.epreuve(groupe);
+    }
+    public void village(){
+        System.out.println("Vous vous retrouvez sur la place du village, vous pouvez vous rendre à la taverne (a), au magasin (b) ou au donjon (c). Si vous n'êtes pas satisfait vous pouvez toujours taper 'le nain'.");
+        String direction = entree.nextLine();
+        if(direction=="le nain"){
+            for(int i=0; i<groupe.length; i++){
+                if (groupe[i].getNom().charAt(0)=='G'){
+                    groupe[i].parle("AIIIIIIIIIIIIIIIIIIIIE!!!");
+                    groupe[i].modifPV(-1);
+                    direction=" ";
+                }
+            }
+            if(direction!=" "){
+                System.out.println("Vous n'avez pas de nain...");
+            }
+        }
+        else if(direction.length()!=0){
+            switch(direction.charAt(0)){
+                case 'a':   taverne();
+                            break;
+                case 'b':   magasin();
+                            break;
+                case 'c':   donjon();
+                            break;
+                default: System.out.println("Veuillez saisir une des options proposées");
+            }
+        }
     }
 }

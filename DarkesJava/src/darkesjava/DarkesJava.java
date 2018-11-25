@@ -19,19 +19,10 @@ public class DarkesJava {
      */
     
     
-    public static boolean groupeVivant(Personnage[] G){
-        for(int i=0; i< G.length; i++){
-            if (G[i].getPV()>0){
-                return true;
-            }
-        }
-        return false;
-    }
-    
     public static void main(String[] args) {
         // TODO code application logic here
        Partie test = new Partie(); 
-       test.debutPartie();
+       test.lancerPartie();
       
    
        Ennemi gobl1 = new Ennemi("Zibli", 5, 2, 40, "Garboulag!");
@@ -49,10 +40,6 @@ public class DarkesJava {
        liste[4]=troll2;
        liste[5]=troll3;
        
-       test.totalOr=100;
-       test.magasin();
-       test.totalOr=100;
-       test.taverne();
        
        Combat fight1 = new Combat("Le combat se déclenche contre ","Le combat se déclenche contre ",liste);
        fight1.combat(test.groupe);
@@ -62,7 +49,7 @@ public class DarkesJava {
        mermaid.rencontre(test.groupe,mermaid);
     
        
-       Epreuve epr = new Epreuve("Vous arrivez dans une salle et devant vous se trouve un coffre","Le coffre",1,"I am  trial");
+       Epreuve epr = new Epreuve("Vous arrivez dans une salle et devant vous se trouve un coffre","Le coffre",1,"I am a trial");
        epr.epreuve(test.groupe);
        
     }

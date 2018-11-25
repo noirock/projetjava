@@ -6,7 +6,6 @@
  */
 package darkesjava;
 
-import static darkesjava.DarkesJava.groupeVivant;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,6 +18,14 @@ public class Combat extends Evenement{
     public Combat(String titr, String in, Ennemi[] adv){
         super(titr, in);
         this.liste=adv;
+    }
+        public static boolean groupeVivant(Personnage[] G){
+        for(int i=0; i< G.length; i++){
+            if (G[i].getPV()>0){
+                return true;
+            }
+        }
+        return false;
     }
     public void combat(Aventurier[] groupe){
         
@@ -49,13 +56,15 @@ public class Combat extends Evenement{
         Scanner choi = new Scanner(System.in);
         
         for (int i=0;i<groupe.length;i++){
-            System.out.println(groupe[i].getNom()+" est actuellement à "+groupe[i].getPV()+" PV");
+            System.out.print(groupe[i].getNom()+" est actuellement à "+groupe[i].getPV()+" PV,  ");
             groupe[i].resetcD();            
         }
+        System.out.println();
         System.out.println(intro);
         for (int i=0;i<groupe.length;i++){
-            System.out.println(adversaires[i].getNom()+" est actuellement à "+adversaires[i].getPV()+" PV");
+            System.out.print(adversaires[i].getNom()+", actuellement à "+adversaires[i].getPV()+" PV,  ");
         }
+        System.out.println();
         int v =0;
         while(v==0){
             for(int i=0; i<groupe.length;i++){
@@ -63,9 +72,12 @@ public class Combat extends Evenement{
                     if(groupe[i].getPV()>0){
                         int k=0;
                         while (k==0){
-                            System.out.println("Choisir une action pour "+groupe[i].getNom()+" : Attaque physique (a),"+groupe[i].sort1+" ("+groupe[i].cd1+" tours avant utilisation possible)(b),"+groupe[i].sort2+"("+groupe[i].cd2+" tours avant utilisation possible)(c)");
-                            char c;
-                            do {c=choi.nextLine().charAt(0);
+                            System.out.println("Choisir une action pour "+groupe[i].getNom()+" : Attaque physique (a),"+groupe[i].sort1+" (utilisable dans "+groupe[i].cd1+" tours)(b),"+groupe[i].sort2+"(utilisable dans "+groupe[i].cd2+" tours)(c)");
+                            char c='e';
+                            do {String s = choi.nextLine();
+                                if(s.length()!=0){
+                                    c=s.charAt(0);
+                                }
                                     }while((c!='a')&&(c!='b')&&(c!='c'));
                             if (c=='a'){
                                 groupe[i].coup(adversaires);

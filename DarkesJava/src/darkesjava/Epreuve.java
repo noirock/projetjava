@@ -50,15 +50,15 @@ public class Epreuve extends Evenement{
          int n=rand.nextInt(30)+51;
         if(type==0){
             if(groupe[c].getForce()>= n){
-                System.out.println("felicitation grâce à la force de "+groupe[c].getNom()+"vous réussissez à ouvrir "+description+ " il obtient un bonus d'intelligence");
+                System.out.println("Félicitations, grâce à la force de "+groupe[c].getNom()+", vous réussissez à ouvrir "+description+ ", il obtient un bonus d'intelligence.");
                 groupe[c].changeIntelligence(5);
-                System.out.println(groupe[c].getNom()+" est maintenant à"+groupe[c].getIntelligence()+" d'intelligence");
+                System.out.println(groupe[c].getNom()+" est maintenant à"+groupe[c].getIntelligence()+" d'intelligence.");
             }
             else if(groupe[c].getForce()>=n-20){
-                System.out.println("zut "+groupe[c].getNom()+" abime "+description+ " n'étant pas assez fort vous passez votre chemin ");
+                System.out.println("Zut! "+groupe[c].getNom()+" abime "+description+ ", n'étant pas assez fort vous passez votre chemin. ");
             }
             else{
-                System.out.println("Coup dur "+groupe[c].getNom()+" donne un coup dans "+description+ " mais son manque de force résulte à une écharde dans le doigt, il perd 2 pv");
+                System.out.println("Coup dur "+groupe[c].getNom()+" donne un coup dans "+description+ " mais son manque de force lui octroie une écharde dans le doigt, il perd 2 PV.");
                 groupe[c].modifPV(-2);
                 System.out.println(groupe[c].getNom()+" est maintenant à"+groupe[c].getPV()+" PV");
                 if (groupe[c].getPV()<=0){
@@ -68,15 +68,15 @@ public class Epreuve extends Evenement{
         }
         else if (type==1){
             if(groupe[c].getIntelligence()>=n){
-                System.out.println("felicitation grâce à l'intelligence de "+groupe[c].getNom()+"vous réussissez à ouvrir "+description+ " il obtient un bonus d'adresse");
+                System.out.println("Félicitations, grâce à l'intelligence de "+groupe[c].getNom()+", vous réussissez à ouvrir "+description+ ", il obtient un bonus d'adresse.");
                 groupe[c].changeAdresse(5);
-                System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getAdresse()+" d'adresse");
+                System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getAdresse()+" d'adresse.");
             }
             else if(groupe[c].getIntelligence()>=n-20){
-                System.out.println("Après un court essaie "+groupe[c].getNom()+" abime "+description+ " par manque d'intelligence, vous passez donc votre chemin ");
+                System.out.println("Après un court essai "+groupe[c].getNom()+" abime "+description+ " par manque d'intelligence, vous passez donc votre chemin. ");
             }
             else{
-                System.out.println("Coup dur "+groupe[c].getNom()+" s'enerve face à "+description+ " n'étant pas suffisement intelligent pour résoudre ce problème il se tape la tête et perd 2 pv");
+                System.out.println("Coup dur! "+groupe[c].getNom()+" s'énerve face à "+description+ ", n'étant pas suffisamment intelligent pour résoudre ce problème il se tape la tête et perd 2 PV.");
                 groupe[c].modifPV(-2);
                 System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getPV()+" PV");
                 if (groupe[c].getPV()<=0){
@@ -87,17 +87,17 @@ public class Epreuve extends Evenement{
         }
         else{
             if(groupe[c].getAdresse()>=n){
-                System.out.println("felicitation grâce à l'adresse de "+groupe[c].getNom()+"vous réussissez à ouvrir "+description+ " il obtient un bonus de force");
+                System.out.println("Félicitations, grâce à l'adresse de "+groupe[c].getNom()+", vous réussissez à ouvrir "+description+ ", il obtient un bonus de force.");
                 groupe[c].changeForce(5);
-                System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getForce()+" de force");
+                System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getForce()+" de force.");
             }
         else if(groupe[c].getAdresse()>=n-20){
-                System.out.println("Après un court essaie la main de "+groupe[c].getNom()+" glisse et "+description+ " s'éxplose, vous n'en tirerez rien, vous passez donc votre chemin ");
+                System.out.println("Après un court essai, la main de "+groupe[c].getNom()+" glisse et "+description+ " explose, vous n'en tirerez rien, vous passez donc votre chemin. ");
             }
             else{
-                System.out.println("Coup dur "+groupe[c].getNom()+" trébuche en allant vers "+description+ " et s'assome en tombant par son manque d'adresse il perd 2 pv");
+                System.out.println("Coup dur! "+groupe[c].getNom()+" trébuche en allant vers "+description+ " et s'assomme en tombant, par son manque d'adresse il perd 2 PV.");
                 groupe[c].modifPV(-2);
-                System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getPV()+" PV");
+                System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getPV()+" PV.");
                 if (groupe[c].getPV()<=0){
                     groupe[c].mort();
                 }
