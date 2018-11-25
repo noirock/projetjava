@@ -51,7 +51,7 @@ public class Combat extends Evenement{
                else{
                    Ennemi truc =new Ennemi(liste[k].getNom(),0,0,0,"",0);
                    truc.adresse=liste[k].adresse;
-                   truc.attaque=liste[k].adresse;
+                   truc.attaque=liste[k].attaque;
                    truc.cri=liste[k].cri;
                    truc.gold=liste[k].gold;
                    truc.pv=liste[k].pv;
