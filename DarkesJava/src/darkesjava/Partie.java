@@ -262,7 +262,6 @@ public class Partie {
        int k=0;
        for (int j=0;j<5;j++){
            k=salle.nextInt(donjon.length);
-           System.out.println(k);
            donjon[k].evenement(groupe,totalOr);
        }   
     }

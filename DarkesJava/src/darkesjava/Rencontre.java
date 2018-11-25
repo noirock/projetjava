@@ -52,6 +52,7 @@ public class Rencontre extends Evenement{
             for (int i=0;i<groupe.length;i++){
                 if (groupe[i].getPV()>0){
                     groupe[i].modifPV(3);
+                    
                 }
             }
         }
@@ -64,6 +65,7 @@ public class Rencontre extends Evenement{
                     if (groupe[i].getPV()<=0){
                         groupe[i].mort();
                     }
+                    
                 }
             }
         }

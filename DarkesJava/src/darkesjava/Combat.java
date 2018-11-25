@@ -113,6 +113,7 @@ public class Combat extends Evenement{
                                 System.out.println("Victoire!!!");
                                 System.out.println("Vous obtenez "+gold+" pièces d'or pour avoir battu ces adversaires");
                                 totalOr+=gold;
+                               System.out.println("Vous disposez maintenant de "+totalOr+" pièces d'or");
                             }
                             if (k==0){
                                 System.out.println("Ce sort est en recharge, il ne peut pas encore être lancer, utilisez une autre compétence");
