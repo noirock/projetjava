@@ -13,13 +13,15 @@ import java.util.Scanner;
  * @author Justin Duban
  */
 public class Partie {
-    int totalOr;
+    public int totalOr;
     Aventurier[] disponibles;
     Aventurier[] groupe;
     Evenement[] donjon;
+    
     Scanner entree = new Scanner(System.in);
     public void lancerPartie(){
         boolean jouer=true;
+        totalOr=20;
         debutPartie();
         while(jouer==true){
             village();
@@ -28,8 +30,6 @@ public class Partie {
     /*méthode qui permet le lancement de la partie*/
     public void debutPartie(){
         System.out.println("Vous arrivez dans un petit village avec votre groupe d'aventuriers, vous avez soif d'aventure et de trésors et c'est pourquoi vous venez vous confronter au...Donjon");
-        
-        totalOr=20;
         Nain Gurdil = new Nain("Gurdil", 13, 70, 40, 50);
         Nain Gunther = new Nain("Gunter", 14, 60, 50, 50);
         Elfe Tirael = new Elfe("Tirael", 10, 50, 70, 40);
@@ -220,7 +220,7 @@ public class Partie {
             
         }        
     }
-    public void donjon(){
+    public int donjon(int totalOr){
           
    
        Ennemi gobl1 = new Ennemi("Zibli", 5, 2, 40, "Garboulag!",1);
@@ -262,8 +262,10 @@ public class Partie {
        int k=0;
        for (int j=0;j<5;j++){
            k=salle.nextInt(donjon.length);
-           donjon[k].evenement(groupe,totalOr);
-       }   
+           totalOr=donjon[k].evenement(groupe,totalOr);
+           
+       }
+       return totalOr;
     }
     public void village(){
         System.out.println("Vous vous retrouvez sur la place du village, vous pouvez vous rendre à la taverne (a), au magasin (b) ou au donjon (c). Si vous n'êtes pas satisfait vous pouvez toujours taper 'le nain'.");
@@ -281,12 +283,13 @@ public class Partie {
             }
         }
         else if(direction.length()!=0){
+            System.out.println("l'or est de "+totalOr);
             switch(direction.charAt(0)){
                 case 'a':   taverne();
                             break;
                 case 'b':   magasin();
                             break;
-                case 'c':   donjon();
+                case 'c':   totalOr =donjon(totalOr);
                             break;
                 default: System.out.println("Veuillez saisir une des options proposées");
             }

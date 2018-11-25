@@ -29,7 +29,7 @@ public class Combat extends Evenement{
         return false;
     }
     /*méthode qui permet la génération des adversaires et effectuer une boucle permettant au joueur de choisir les actions de ses personnages puis les ennemies effectuent leurs actions*/
-    public void evenement(Aventurier[] groupe, Integer totalOr){
+    public int evenement(Aventurier[] groupe, Integer totalOr){
        gold=0;
        Random adversaire = new Random();
        Ennemi[] adversaires = new Ennemi [3];
@@ -113,7 +113,8 @@ public class Combat extends Evenement{
                                 System.out.println("Victoire!!!");
                                 System.out.println("Vous obtenez "+gold+" pièces d'or pour avoir battu ces adversaires");
                                 totalOr+=gold;
-                               System.out.println("Vous disposez maintenant de "+totalOr+" pièces d'or");
+                                System.out.println("Vous disposez maintenant de "+totalOr+" pièces d'or");
+                                
                             }
                             if (k==0){
                                 System.out.println("Ce sort est en recharge, il ne peut pas encore être lancer, utilisez une autre compétence");
@@ -136,5 +137,6 @@ public class Combat extends Evenement{
                 }
             }
         }
+        return totalOr;
     }
 }
