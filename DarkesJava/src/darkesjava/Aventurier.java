@@ -107,7 +107,7 @@ public class Aventurier extends Personnage {
             resistance=0;
         }
     }
-    /*méthode qui permet a un personnage du joueur d'attaquer un ennemie durant les combats avec en cas de réussite modification des PV de l'ennemi*/
+    /*méthode qui permet a un personnage du joueur d'attaquer un ennemi durant les combats avec en cas de réussite modification des PV de l'ennemi*/
     public void coup(Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
         System.out.println("Cible de "+getNom()+" :");
