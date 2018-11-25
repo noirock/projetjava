@@ -19,6 +19,7 @@ public class Aventurier extends Personnage {
     private int intelligence;
     protected int pvmax;
     int provocation;
+    int resistance;
     
     
     public Aventurier(String nom, int pv, int fo, int ad, int in){
@@ -28,6 +29,7 @@ public class Aventurier extends Personnage {
         this.intelligence=in;
         this.pvmax=pv;
         this.provocation=0;
+        this.resistance=0;
     }
     
     public void mort(){
@@ -37,6 +39,8 @@ public class Aventurier extends Personnage {
         modifPV(-getPV());
         modifPVmax(-getPVmax());
         System.out.println(getNom()+" n'était pas assez fort, sa mort était inévitable");
+        resistance=0;
+        provocation=0;
     }
     
     public int action(int stat, float bonus){
@@ -93,6 +97,16 @@ public class Aventurier extends Personnage {
         cd1=0;
         cd2=0;
     }
+    public void fintour(){
+        provocation=provocation-1;
+        resistance=resistance-1;
+        if (provocation<0){
+            provocation=0;
+        }
+        if (resistance<0){
+            resistance=0;
+        }
+    }
 
     public void coup(Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
@@ -114,7 +128,7 @@ public class Aventurier extends Personnage {
                 }
             else{System.out.println("Veuillez choisir une des cibles proposées");}}   
         }
-        if(action(adresse, 20)==1){ 
+        if(action(adresse, 10)==1){ 
             mechant[j].modifPV(-force/10);
             System.out.println(mechant[j].getCri());
             System.out.println(mechant[j].getNom() + " perds " +(force/10)+"PV");

@@ -20,12 +20,12 @@ public class Rencontre extends Evenement{
         this.defi=de;
         this.pnj=r;
     }
-        public void rencontre(Aventurier[] groupe, Rencontre rencontre){
+        public void evenement(Aventurier[] groupe){
         System.out.println(intro);
-        rencontre.pnj.sePresenter();
-        rencontre.pnj.parle(rencontre.defi);
+        pnj.sePresenter();
+        pnj.parle(defi);
         Scanner aventurier = new Scanner(System.in);
-        System.out.println("Quel personnage voulez vous envoyer parler à "+rencontre.pnj.getNom()+" ?");
+        System.out.println("Quel personnage voulez vous envoyer parler à "+pnj.getNom()+" ?");
         for (int i=0;i<groupe.length;i++){
             if(groupe[i].getPV()>0){
                 System.out.println("pour "+groupe[i].getNom()+" taper "+ i);
@@ -47,7 +47,7 @@ public class Rencontre extends Evenement{
         Random rand = new Random();
         int n = rand.nextInt(3);
         if (n==c){
-            System.out.println("Félicitations, vous réussissez l'épreuve sans soucis grâce à l'inventivité de "+groupe[n].getNom()+", "+ rencontre.pnj.getNom()+" vous accorde un enchantement de 3pv sur chacun de vos aventuriers");
+            System.out.println("Félicitations, vous réussissez l'épreuve sans soucis grâce à l'inventivité de "+groupe[n].getNom()+", "+ pnj.getNom()+" vous accorde un enchantement de 3pv sur chacun de vos aventuriers");
             for (int i=0;i<groupe.length;i++){
                 if (groupe[i].getPV()>0){
                     groupe[i].modifPV(3);
@@ -55,7 +55,7 @@ public class Rencontre extends Evenement{
             }
         }
         else{
-            System.out.println("En essayant une approche "+groupe[c].getNom()+" brutale "+rencontre.pnj.getNom()+" qui vous lance un sort et vous fait perdre 1pv à chacun de vos aventuriers");
+            System.out.println("En essayant une approche "+groupe[c].getNom()+" brutale "+pnj.getNom()+" qui vous lance un sort et vous fait perdre 1pv à chacun de vos aventuriers");
             for (int i=0;i<groupe.length;i++){
                 if (groupe[i].getPV()>0){
                     groupe[i].modifPV(-1);

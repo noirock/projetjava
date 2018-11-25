@@ -27,7 +27,7 @@ public class Combat extends Evenement{
         }
         return false;
     }
-    public void combat(Aventurier[] groupe){
+    public void evenement(Aventurier[] groupe){
         
        Random adversaire = new Random();
        Ennemi[] adversaires = new Ennemi [3];
@@ -56,7 +56,7 @@ public class Combat extends Evenement{
         Scanner choi = new Scanner(System.in);
         
         for (int i=0;i<groupe.length;i++){
-            System.out.print(groupe[i].getNom()+" est actuellement à "+groupe[i].getPV()+" PV,  ");
+            System.out.println(groupe[i].getNom()+" est actuellement à "+groupe[i].getPV()+" PV,  ");
             groupe[i].resetcD();            
         }
         System.out.println();
@@ -84,16 +84,19 @@ public class Combat extends Evenement{
                                 groupe[i].cd1D();
                                 groupe[i].cd2D();
                                 k=1;
+                                groupe[i].fintour();
                             }
                             else if (c=='b' && groupe[i].cd1<=0){
                                 groupe[i].sort1(groupe, adversaires);
                                 groupe[i].cd2D();
                                 k=1;
+                                groupe[i].fintour();
                             }
                             else if (c=='c' && groupe[i].cd2<=0){
                                 groupe[i].sort2(groupe, adversaires);
                                 groupe[i].cd1D();
                                 k=1;
+                                groupe[i].fintour();
                             }
                             if (groupeVivant(adversaires)==false){
                                 v=1;
@@ -107,6 +110,7 @@ public class Combat extends Evenement{
                     }
                 }
             }
+            
             for(int i=0; i<adversaires.length;i++){
                 if (v==0){
                     if(adversaires[i].getPV()>0){

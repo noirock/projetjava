@@ -16,7 +16,7 @@ public class Partie {
     int totalOr;
     Aventurier[] disponibles;
     Aventurier[] groupe;
-    Evenement[] evenements;
+    Evenement[] donjon;
     Scanner entree = new Scanner(System.in);
     public void lancerPartie(){
         boolean jouer=true;
@@ -81,7 +81,7 @@ public class Partie {
             }
             System.out.println();
             do {
-                System.out.println("Engagez un nouveau personnage pour 20 po?(taper le numéro du personnage) ou Sortir?(taper X)");
+                System.out.println("Vous disposez acuellement de "+ totalOr+" pieces d'or. Engagez un nouveau personnage pour 20 po?(taper le numéro du personnage) ou Sortir?(taper X)");
                 String s = entree.nextLine();
                 if(s.length() !=0){
                     char touche = s.charAt(0);
@@ -130,19 +130,19 @@ public class Partie {
             int i = 0;
             System.out.println();
             System.out.println("Equippement disponibles :");
-            System.out.println("1) Epee(+5 en Force)(5 po), 2) Cape(+5 en Adresse)(5 po), 3) Livre(+5 en Intelligence)(5 po), 4) Armure(+3 PV)(5 po)");
+            System.out.println("1) Epee(+5 en Force)(10 po), 2) Cape(+5 en Adresse)(10 po), 3) Livre(+5 en Intelligence)(10 po), 4) Armure(+3 PV)(10 po)");
             System.out.println("Groupe actuel :");
             for(int j=0; j<groupe.length; j++){
-                System.out.print(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
+                System.out.println(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
             }
             System.out.println();
             do {
-                System.out.println("Acheter un objet?(taper le numéro de l'objet) ou Sortir?(taper X)");
+                System.out.println("Vous disposez acuellement de "+ totalOr+" pieces d'or. Acheter un objet?(taper le numéro de l'objet) ou Sortir?(taper X)");
                 String s = entree.nextLine();
                 if(s.length() !=0){
                     char touche = s.charAt(0);
                     if ((touche<'5') && (touche>'0')){
-                        if (totalOr<100){
+                        if (totalOr<10){
                             i=0;
                             System.out.println("Pas assez d'or...");
                             System.out.println();
@@ -151,7 +151,7 @@ public class Partie {
                             i=0;
                             System.out.println("Choisir personnage à équiper:");
                             for(int j=0; j<groupe.length; j++){
-                                System.out.print(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
+                                System.out.println(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ("+j+")");
                             }
                             char apuce ='e';
                             do{
@@ -164,15 +164,19 @@ public class Partie {
                             switch(touche){
                                 case '1':   groupe[Integer.parseInt(sapuce)].changeForce(5);
                                             System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 5 de Force");
+                                            totalOr=totalOr-10;
                                             break;
                                 case '2':   groupe[Integer.parseInt(sapuce)].changeAdresse(5);
                                             System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 5 de Adresse");
+                                            totalOr=totalOr-10;
                                             break;
                                 case '3':   groupe[Integer.parseInt(sapuce)].changeIntelligence(5);
                                             System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 5 d'Intelligence");
+                                            totalOr=totalOr-10;
                                             break;
                                 case '4':   groupe[Integer.parseInt(sapuce)].modifPVmax(groupe[Integer.parseInt(sapuce)].getPVmax()+5);
                                             System.out.println(groupe[Integer.parseInt(sapuce)].getNom()+" gagne 3 PV max");
+                                            totalOr=totalOr-10;
                                             break;                                    
                             }
                         }
@@ -205,16 +209,36 @@ public class Partie {
        liste[5]=troll3;
        
        
-       Combat fight1 = new Combat("Le combat se déclenche contre ",liste);
-       fight1.combat(groupe);
+       Combat fight = new Combat("Le combat se déclenche contre ",liste);
        
        Personnage sirene = new Personnage("La sirene", 7);
        Rencontre mermaid = new Rencontre("Vous arrivez dans une grotte, vous entendez l'eau couler d'un lac proche et une silhouette se dessine au bord de l'eau", "Bonjour étrangers, que faites-vous en mon domaine?", sirene);
-       mermaid.rencontre(groupe,mermaid);
     
        
-       Epreuve epr = new Epreuve("Vous arrivez dans une salle et devant vous se trouve un coffre","Le coffre",1);
-       epr.epreuve(groupe);
+       Epreuve epr1 = new Epreuve("Vous arrivez dans une salle et devant vous se trouve un coffre","Le coffre",1);
+       Epreuve epr0 = new Epreuve("Vous arrivez dans une salle et devant vous se trouve une grande porte dorée","La porte",0);
+       Epreuve epr2 = new Epreuve("Vous arrivez dans une salle et devant vous se trouve une salle piégée","La salle piégée",2);
+       
+       donjon =new Evenement[10];
+       donjon[0]=epr1;
+       donjon[1]=epr2;
+       donjon[2]=epr0;
+       donjon[3]=mermaid;
+       donjon[4]=mermaid;
+       for (int i=5 ; i<10;i++){
+           donjon[i]=fight;
+       }
+       Random salle = new Random();
+       int k=0;
+       for (int j=0;j<5;j++){
+           k=salle.nextInt(donjon.length);
+           System.out.println(k);
+           donjon[k].evenement(groupe);
+       }
+           
+       
+       
+       
     }
     public void village(){
         System.out.println("Vous vous retrouvez sur la place du village, vous pouvez vous rendre à la taverne (a), au magasin (b) ou au donjon (c). Si vous n'êtes pas satisfait vous pouvez toujours taper 'le nain'.");

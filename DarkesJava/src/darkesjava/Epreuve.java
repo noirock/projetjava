@@ -24,7 +24,7 @@ public class Epreuve extends Evenement{
     }
     
     
-    public void epreuve(Aventurier[] groupe){
+    public void evenement(Aventurier[] groupe){
         System.out.println();
         System.out.println(intro);
         Scanner aventurier = new Scanner(System.in);
@@ -88,7 +88,7 @@ public class Epreuve extends Evenement{
         }
         else{
             if(groupe[c].getAdresse()>=n){
-                System.out.println("Félicitations, grâce à l'adresse de "+groupe[c].getNom()+", vous réussissez à ouvrir "+description+ ", il obtient un bonus de force.");
+                System.out.println("Félicitations, grâce à l'adresse de "+groupe[c].getNom()+", vous réussissez à franchir "+description+ ", il obtient un bonus de force.");
                 groupe[c].changeForce(5);
                 System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getForce()+" de force.");
             }

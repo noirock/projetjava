@@ -14,4 +14,6 @@ public class Evenement {
     public Evenement(String in){
         this.intro=in;
     }
+    public void evenement(Aventurier[] groupe){
+    }
 }

@@ -10,7 +10,6 @@ package darkesjava;
  * @author Justin Duban
  */
 public class Nain extends Aventurier{
-    int resistance;
     public Nain(String nom, int pv, int fo, int ad, int in){
         super(nom, pv, fo, ad, in);
         resistance=0;
@@ -22,7 +21,7 @@ public class Nain extends Aventurier{
     }
     public void sort1(Aventurier[] a, Ennemi[] e){
         if(action(getIntelligence(),20)==1){
-            resistance=3;
+            resistance=4;
             System.out.println(getNom()+" gagne en résistance!");
         }
         else{
@@ -32,7 +31,7 @@ public class Nain extends Aventurier{
     }
     public void sort2(Aventurier[] a, Ennemi[] e){
         if(action(getIntelligence(),30)==1){
-            provocation=3;
+            provocation=4;
             System.out.println(getNom()+" provoque les ennemis pour qu'ils l'attaquent et oublient ses alliés!");
         }
         else{

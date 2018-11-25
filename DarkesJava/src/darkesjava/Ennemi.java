@@ -54,8 +54,5 @@ public class Ennemi extends Personnage {
      else{
          System.out.println("Mais loupe sa cible");
      }
-     
-         
-    
     }
 }
