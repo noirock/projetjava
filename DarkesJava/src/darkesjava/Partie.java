@@ -14,18 +14,26 @@ import java.util.Scanner;
  */
 public class Partie {
     public int totalOr;
+    public boolean jouer = true;
     Aventurier[] disponibles;
     Aventurier[] groupe;
     Evenement[] donjon;
     
     Scanner entree = new Scanner(System.in);
     public void lancerPartie(){
-        boolean jouer=true;
         totalOr=20;
         debutPartie();
         while(jouer==true){
             village();
         }
+    }
+    public static boolean groupeVivant(Personnage[] G){
+        for(int i=0; i< G.length; i++){
+            if (G[i].getPV()>0){
+                return true;
+            }
+        }
+        return false;
     }
     /*méthode qui permet le lancement de la partie*/
     public void debutPartie(){
@@ -263,12 +271,14 @@ public class Partie {
        for (int j=0;j<5;j++){
            k=salle.nextInt(donjon.length);
            totalOr=donjon[k].evenement(groupe,totalOr);
-           
+           if (groupeVivant(groupe)==false){
+               j=5;
+           }
        }
        return totalOr;
     }
     public void village(){
-        System.out.println("Vous vous retrouvez sur la place du village, vous pouvez vous rendre à la taverne (a), au magasin (b) ou au donjon (c). Si vous n'êtes pas satisfait vous pouvez toujours taper 'le nain'.");
+        System.out.println("Vous vous retrouvez sur la place du village, vous pouvez vous rendre à la taverne (a), au magasin (b) ou au donjon (c) ou quitter le jeu (e). Si vous n'êtes pas satisfait vous pouvez toujours taper 'le nain'.");
         String direction = entree.nextLine();
         if(direction=="le nain"){
             for(int i=0; i<groupe.length; i++){
@@ -283,14 +293,23 @@ public class Partie {
             }
         }
         else if(direction.length()!=0){
-            System.out.println("l'or est de "+totalOr);
             switch(direction.charAt(0)){
                 case 'a':   taverne();
                             break;
                 case 'b':   magasin();
                             break;
-                case 'c':   totalOr =donjon(totalOr);
+                case 'c' :
+                            if(groupeVivant(groupe)){
+                            totalOr =donjon(totalOr);
+                            }
+                            else{
+                                System.out.println("il vous faut au moins un personnage en vie pour rentrer dans le donjon");
+                            }
                             break;
+                case 'e':
+                        jouer = false;
+                        System.out.println("Merci d'avoir joué et à bientôt! <3");
+                        break;
                 default: System.out.println("Veuillez saisir une des options proposées");
             }
         }

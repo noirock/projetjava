@@ -14,6 +14,15 @@ public class Evenement {
     public Evenement(String in){
         this.intro=in;
     }
+    public static boolean groupeVivant(Personnage[] G){
+        for(int i=0; i< G.length; i++){
+            if (G[i].getPV()>0){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public int evenement(Aventurier[] groupe, Integer totalOr){
         return totalOr;
     }

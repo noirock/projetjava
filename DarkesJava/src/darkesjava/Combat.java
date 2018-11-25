@@ -20,14 +20,7 @@ public class Combat extends Evenement{
         super(in);
         this.liste=adv;
     }
-    public static boolean groupeVivant(Personnage[] G){
-        for(int i=0; i< G.length; i++){
-            if (G[i].getPV()>0){
-                return true;
-            }
-        }
-        return false;
-    }
+    
     /*méthode qui permet la génération des adversaires et effectuer une boucle permettant au joueur de choisir les actions de ses personnages puis les ennemies effectuent leurs actions*/
     public int evenement(Aventurier[] groupe, Integer totalOr){
        gold=0;
@@ -131,7 +124,7 @@ public class Combat extends Evenement{
                         if(groupeVivant(groupe)==false){
                             v=1;
                             i=adversaires.length;
-                            System.out.println("Défaite...");
+                            System.out.println("Défaite...");                           
                         }
                     }
                 }
