@@ -53,15 +53,15 @@ public class Epreuve extends Evenement{
             if(groupe[c].getForce()>= n){
                 System.out.println("Félicitations, grâce à la force de "+groupe[c].getNom()+", vous réussissez à ouvrir "+description+ ", il obtient un bonus d'intelligence.");
                 groupe[c].changeIntelligence(5);
-                System.out.println(groupe[c].getNom()+" est maintenant à"+groupe[c].getIntelligence()+" d'intelligence.");
+                System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getIntelligence()+" d'intelligence.");
             }
             else if(groupe[c].getForce()>=n-20){
                 System.out.println("Zut! "+groupe[c].getNom()+" abime "+description+ ", n'étant pas assez fort vous passez votre chemin. ");
             }
             else{
-                System.out.println("Coup dur "+groupe[c].getNom()+" donne un coup dans "+description+ " mais son manque de force lui octroie une écharde dans le doigt, il perd 2 PV.");
+                System.out.println("Coup dur! "+groupe[c].getNom()+" donne un coup dans "+description+ " mais son manque de force lui octroie une écharde dans le doigt, il perd 2 PV.");
                 groupe[c].modifPV(-2);
-                System.out.println(groupe[c].getNom()+" est maintenant à"+groupe[c].getPV()+" PV");
+                System.out.println(groupe[c].getNom()+" est maintenant à "+groupe[c].getPV()+" PV");
                 if (groupe[c].getPV()<=0){
                     groupe[c].mort();
                 }
