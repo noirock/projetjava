@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class Rencontre extends Evenement{
     String defi;
     Personnage pnj;
-    Rencontre(String titr,String in, String de, Personnage r){
-        super(titr,in);
+    Rencontre(String in, String de, Personnage r){
+        super(in);
         this.defi=de;
         this.pnj=r;
     }

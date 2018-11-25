@@ -10,10 +10,8 @@ package darkesjava;
  * @author Justin Duban
  */
 public class Evenement {
-    String titre;
     String intro;
-    public Evenement(String titr, String in){
-        this.titre=titr;
+    public Evenement(String in){
         this.intro=in;
     }
 }

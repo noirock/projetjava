@@ -17,17 +17,18 @@ public class Epreuve extends Evenement{
     Integer type;
     
     
-    Epreuve(String in,String de,Integer ty,String tit){
-        super(in,tit);
+    Epreuve(String in,String de,Integer ty){
+        super(in);
         this.description=de;
         this.type= ty;
     }
     
     
     public void epreuve(Aventurier[] groupe){
+        System.out.println();
         System.out.println(intro);
         Scanner aventurier = new Scanner(System.in);
-        System.out.println("Quel personnage voullez vous envoyer pour fouiller "+description +"?");
+        System.out.println("Quel personnage voulez vous envoyer pour "+description +"?");
         for (int i=0;i<groupe.length;i++){
             if(groupe[i].getPV()>0){
                 System.out.println("pour "+groupe[i].getNom()+" taper "+ i);

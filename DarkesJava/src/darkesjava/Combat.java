@@ -15,8 +15,8 @@ import java.util.Scanner;
  */
 public class Combat extends Evenement{
     Ennemi[] liste;
-    public Combat(String titr, String in, Ennemi[] adv){
-        super(titr, in);
+    public Combat(String in, Ennemi[] adv){
+        super(in);
         this.liste=adv;
     }
         public static boolean groupeVivant(Personnage[] G){

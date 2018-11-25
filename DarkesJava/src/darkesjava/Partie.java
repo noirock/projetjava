@@ -205,15 +205,15 @@ public class Partie {
        liste[5]=troll3;
        
        
-       Combat fight1 = new Combat("Le combat se déclenche contre ","Le combat se déclenche contre ",liste);
+       Combat fight1 = new Combat("Le combat se déclenche contre ",liste);
        fight1.combat(groupe);
        
        Personnage sirene = new Personnage("La sirene", 7);
-       Rencontre mermaid = new Rencontre("la sirène","Vous arrivez dans une grotte, vous entendez l'eau couler d'un lac proche et une silhouette se dessine au bord de l'eau", "Bonjour étrangers, que faites-vous en mon domaine?", sirene);
+       Rencontre mermaid = new Rencontre("Vous arrivez dans une grotte, vous entendez l'eau couler d'un lac proche et une silhouette se dessine au bord de l'eau", "Bonjour étrangers, que faites-vous en mon domaine?", sirene);
        mermaid.rencontre(groupe,mermaid);
     
        
-       Epreuve epr = new Epreuve("Vous arrivez dans une salle et devant vous se trouve un coffre","Le coffre",1,"I am a trial");
+       Epreuve epr = new Epreuve("Vous arrivez dans une salle et devant vous se trouve un coffre","Le coffre",1);
        epr.epreuve(groupe);
     }
     public void village(){
