@@ -271,6 +271,7 @@ public class Partie {
        for (int j=0;j<5;j++){
            k=salle.nextInt(donjon.length);
            totalOr=donjon[k].evenement(groupe,totalOr);
+           System.out.println();
            if (groupeVivant(groupe)==false){
                j=5;
            }
@@ -278,7 +279,7 @@ public class Partie {
        return totalOr;
     }
     public void village(){
-        System.out.println("Vous vous retrouvez sur la place du village, vous pouvez vous rendre à la taverne (a), au magasin (b) ou au donjon (c) ou quitter le jeu (e). Si vous n'êtes pas satisfait vous pouvez toujours taper 'le nain'.");
+        System.out.println("Vous vous retrouvez sur la place du village, vous pouvez vous rendre à la taverne (a), au magasin (b) ou au donjon (c), ou encore quitter le jeu (e). Si vous n'êtes pas satisfait vous pouvez toujours taper 'le nain'.");
         String direction = entree.nextLine();
         if(direction=="le nain"){
             for(int i=0; i<groupe.length; i++){

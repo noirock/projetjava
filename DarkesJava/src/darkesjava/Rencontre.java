@@ -57,7 +57,7 @@ public class Rencontre extends Evenement{
             }
         }
         else{
-            System.out.println("En essayant une approche "+groupe[c].getNom()+" brutale "+pnj.getNom()+" qui vous lance un sort et vous fait perdre 1pv à chacun de vos aventuriers");
+            System.out.println("En essayant une approche brutale, "+groupe[c].getNom()+" énerve "+pnj.getNom()+" qui vous lance un sort et vous fait perdre 1pv à chacun de vos aventuriers");
             for (int i=0;i<groupe.length;i++){
                 if (groupe[i].getPV()>0){
                     groupe[i].modifPV(-1);
