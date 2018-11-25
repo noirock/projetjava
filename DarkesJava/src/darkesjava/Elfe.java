@@ -53,7 +53,7 @@ public class Elfe extends Aventurier{
         cd1=4;
     }
 /*méthode permettant au Mage de soigner tous les alliers en cas de réussite*/
-    public void sort2(Aventurier[] groupe, Ennemi[] mechant){
+    public void sort2(Aventurier[] groupe, Ennemi[] mechant ){
         if(action(getIntelligence(),10)==1){
             for(int i=0; i<groupe.length; i++){
                 if(groupe[i].pv>0){

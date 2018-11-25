@@ -20,7 +20,7 @@ public class Combat extends Evenement{
         super(in);
         this.liste=adv;
     }
-        public static boolean groupeVivant(Personnage[] G){
+    public static boolean groupeVivant(Personnage[] G){
         for(int i=0; i< G.length; i++){
             if (G[i].getPV()>0){
                 return true;
