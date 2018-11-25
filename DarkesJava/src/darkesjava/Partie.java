@@ -108,7 +108,7 @@ public class Partie {
                             totalOr=totalOr-20;
                             System.out.println("Choisir personnage à remplacer:");
                             for(int j=0; j<groupe.length; j++){
-                                System.out.println(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
+                                System.out.println(j+": "+groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
                             }
                             System.out.println();
                             char apuce ='e';
@@ -189,7 +189,7 @@ public class Partie {
                             i=0;
                             System.out.println("Choisir personnage à équiper:");
                             for(int j=0; j<groupe.length; j++){
-                                System.out.println(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ("+j+")");
+                                System.out.println(j+": "+groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ("+j+")");
                             }
                             char apuce ='e';
                             do{
