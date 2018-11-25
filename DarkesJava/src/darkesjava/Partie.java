@@ -281,7 +281,7 @@ public class Partie {
     public void village(){
         System.out.println("Vous vous retrouvez sur la place du village, vous pouvez vous rendre à la taverne (a), au magasin (b) ou au donjon (c), ou encore quitter le jeu (e). Si vous n'êtes pas satisfait vous pouvez toujours taper 'le nain'.");
         String direction = entree.nextLine();
-        if(direction=="le nain"){
+        if(direction.equals("le nain")){
             for(int i=0; i<groupe.length; i++){
                 if (groupe[i].getNom().charAt(0)=='G'){
                     groupe[i].parle("AIIIIIIIIIIIIIIIIIIIIE!!!");
@@ -289,7 +289,7 @@ public class Partie {
                     direction=" ";
                 }
             }
-            if(direction!=" "){
+            if(!direction.equals(" ")){
                 System.out.println("Vous n'avez pas de nain...");
             }
         }
