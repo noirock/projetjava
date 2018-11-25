@@ -20,7 +20,7 @@ public class Rencontre extends Evenement{
         this.defi=de;
         this.pnj=r;
     }
-        public void evenement(Aventurier[] groupe){
+        public void evenement(Aventurier[] groupe, Integer totalOr){
         System.out.println(intro);
         pnj.sePresenter();
         pnj.parle(defi);

@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 public class Combat extends Evenement{
     Ennemi[] liste;
+    Integer gold;
     public Combat(String in, Ennemi[] adv){
         super(in);
         this.liste=adv;
@@ -27,8 +28,8 @@ public class Combat extends Evenement{
         }
         return false;
     }
-    public void evenement(Aventurier[] groupe){
-        
+    public void evenement(Aventurier[] groupe, Integer totalOr){
+       gold=0;
        Random adversaire = new Random();
        Ennemi[] adversaires = new Ennemi [3];
        Integer[] verif=new Integer[3];
@@ -47,8 +48,15 @@ public class Combat extends Evenement{
                    j=0;
                }
                else{
-                   adversaires[i]=liste[k];
+                   Ennemi truc =new Ennemi(liste[k].getNom(),0,0,0,"",0);
+                   truc.adresse=liste[k].adresse;
+                   truc.attaque=liste[k].adresse;
+                   truc.cri=liste[k].cri;
+                   truc.gold=liste[k].gold;
+                   truc.pv=liste[k].pv;
+                   adversaires[i]=truc;
                    verif[i]=k;
+                   gold+=liste[k].gold;
                    j=1;
                }
            }  
@@ -102,6 +110,8 @@ public class Combat extends Evenement{
                                 v=1;
                                 i=groupe.length;
                                 System.out.println("Victoire!!!");
+                                System.out.println("Vous obtenez "+gold+" pièces d'or pour avoir battu ces adversaires");
+                                totalOr+=gold;
                             }
                             if (k==0){
                                 System.out.println("Ce sort est en recharge, il ne peut pas encore être lancer, utilisez une autre compétence");

@@ -24,7 +24,7 @@ public class Epreuve extends Evenement{
     }
     
     
-    public void evenement(Aventurier[] groupe){
+    public void evenement(Aventurier[] groupe, Integer totalOr){
         System.out.println();
         System.out.println(intro);
         Scanner aventurier = new Scanner(System.in);

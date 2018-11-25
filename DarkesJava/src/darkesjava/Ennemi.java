@@ -10,15 +10,17 @@ import java.util.Random;
  * @author Justin Duban
  */
 public class Ennemi extends Personnage {
-    private Integer attaque;
-    private Integer adresse;
-    private String cri;
+    public Integer attaque;
+    public Integer adresse;
+    public String cri;
+    public Integer gold;
     
-    public Ennemi(String nom, int pv, int atk,int adr, String c){
+    public Ennemi(String nom, int pv, int atk,int adr, String c, Integer g){
         super(nom, pv);
         this.attaque=atk;
         this.adresse=adr;
         this.cri=c;
+        this.gold=g;
     }
     public String getCri(){
         return cri;

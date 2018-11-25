@@ -28,7 +28,7 @@ public class Partie {
     public void debutPartie(){
         System.out.println("Vous arrivez dans un petit village avec votre groupe d'aventuriers, vous avez soif d'aventure et de trésors et c'est pourquoi vous venez vous confronter au...Donjon");
         
-        totalOr=20;
+        totalOr=2000;
         Nain Gurdil = new Nain("Gurdil", 13, 70, 40, 50);
         Nain Gunther = new Nain("Gunter", 14, 60, 50, 50);
         Elfe Tirael = new Elfe("Tirael", 10, 50, 70, 40);
@@ -71,21 +71,21 @@ public class Partie {
             int i = 0;
             System.out.println("Aventuriers disponibles :");
             while(i!=disponibles.length){
-                System.out.print(i+": "+disponibles[i].getNom()+", PV:"+disponibles[i].pvmax+", Force:"+disponibles[i].getForce()+", Intelligence:"+disponibles[i].getIntelligence()+", Adresse:"+disponibles[i].getAdresse()+" | ");
+                System.out.println(i+": "+disponibles[i].getNom()+", PV:"+disponibles[i].pvmax+", Force:"+disponibles[i].getForce()+", Intelligence:"+disponibles[i].getIntelligence()+", Adresse:"+disponibles[i].getAdresse()+" ");
                 i++;
             }
             System.out.println();
             System.out.println("Groupe actuel :");
             for(int j=0; j<groupe.length; j++){
-                System.out.print(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
+                System.out.println(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
             }
             System.out.println();
             do {
-                System.out.println("Vous disposez acuellement de "+ totalOr+" pieces d'or. Engagez un nouveau personnage pour 20 po?(taper le numéro du personnage) ou Sortir?(taper X)");
+                System.out.println("Vous disposez acuellement de "+ totalOr +" pieces d'or. Engagez un nouveau personnage pour 20 po?(taper le numéro du personnage) ou Sortir?(taper X)");
                 String s = entree.nextLine();
                 if(s.length() !=0){
                     char touche = s.charAt(0);
-                    if ((touche<='9') && (touche>='0')){
+                    if ((touche<='5') && (touche>='0')){
                         String stouche=String.valueOf(touche);
                         int touch=Integer.parseInt(stouche);
                         if (totalOr<20){
@@ -98,7 +98,7 @@ public class Partie {
                             totalOr=totalOr-20;
                             System.out.println("Choisir personnage à remplacer:");
                             for(int j=0; j<groupe.length; j++){
-                                System.out.print(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
+                                System.out.println(groupe[j].getNom()+", PV:"+groupe[j].pvmax+", Force:"+groupe[j].getForce()+", Intelligence:"+groupe[j].getIntelligence()+", Adresse:"+groupe[j].getAdresse()+"  ");
                             }
                             System.out.println();
                             char apuce ='e';
@@ -109,7 +109,34 @@ public class Partie {
                                 }
                             } while((apuce!='0')&&(apuce!='1')&&(apuce!='2'));
                             String sapuce=String.valueOf(apuce);
-                            groupe[Integer.parseInt(sapuce)]=disponibles[touch];//!\/!\/!\/!\/!\/!\/!\/!\/!\!/\!/!\/!\/!\/!\!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
+                            if(touche>='0' && touche <='1'){
+                                Nain ajout = new Nain(disponibles[touch].getNom(), 0, 0, 0, 0);
+                                ajout.pv=disponibles[touch].pv;
+                                ajout.pvmax=disponibles[touch].pvmax;
+                                ajout.changeForce(disponibles[touch].getForce());
+                                ajout.changeIntelligence(disponibles[touch].getIntelligence());
+                                ajout.changeAdresse(disponibles[touch].getAdresse());
+                                groupe[Integer.parseInt(sapuce)]=ajout;
+                            }
+                            if(touche>='2' && touche <='3'){
+                                Elfe ajout = new Elfe(disponibles[touch].getNom(),0,0,0,0);
+                                ajout.pv=disponibles[touch].pv;
+                                ajout.pvmax=disponibles[touch].pvmax;
+                                ajout.changeForce(disponibles[touch].getForce());
+                                ajout.changeIntelligence(disponibles[touch].getIntelligence());
+                                ajout.changeAdresse(disponibles[touch].getAdresse());
+                                groupe[Integer.parseInt(sapuce)]=ajout;
+                            }
+                            if(touche>='4' && touche <='5'){
+                                Mage ajout = new Mage(disponibles[touch].getNom(),0,0,0,0);
+                                ajout.pv=disponibles[touch].pv;
+                                ajout.pvmax=disponibles[touch].pvmax;
+                                ajout.changeForce(disponibles[touch].getForce());
+                                ajout.changeIntelligence(disponibles[touch].getIntelligence());
+                                ajout.changeAdresse(disponibles[touch].getAdresse());
+                                groupe[Integer.parseInt(sapuce)]=ajout;
+                            }
+                            
                         }
                     }
                     else if(touche=='X'){
@@ -193,12 +220,12 @@ public class Partie {
     public void donjon(){
           
    
-       Ennemi gobl1 = new Ennemi("Zibli", 5, 2, 40, "Garboulag!");
-       Ennemi gobl2 = new Ennemi("Billi", 5, 2, 40, "Garboulug!");
-       Ennemi gobl3 = new Ennemi("Guili", 5, 2, 40, "Garboulog!");
-       Ennemi troll1 = new Ennemi("Bazoul",15,4,20, "bougabouh");
-       Ennemi troll2 = new Ennemi("Tazeyl",15,4,20, "bougabouh");
-       Ennemi troll3 = new Ennemi("Razort",15,4,20, "bougabouh");
+       Ennemi gobl1 = new Ennemi("Zibli", 5, 2, 40, "Garboulag!",1);
+       Ennemi gobl2 = new Ennemi("Billi", 5, 2, 40, "Garboulug!",1);
+       Ennemi gobl3 = new Ennemi("Guili", 5, 2, 40, "Garboulog!",1);
+       Ennemi troll1 = new Ennemi("Bazoul",15,4,20, "bougabouh",3);
+       Ennemi troll2 = new Ennemi("Tazeyl",15,4,20, "bougabouh",3);
+       Ennemi troll3 = new Ennemi("Razort",15,4,20, "bougabouh",3);
        
        Ennemi[] liste = new Ennemi[6];
        liste[0]=gobl1;
@@ -233,12 +260,8 @@ public class Partie {
        for (int j=0;j<5;j++){
            k=salle.nextInt(donjon.length);
            System.out.println(k);
-           donjon[k].evenement(groupe);
-       }
-           
-       
-       
-       
+           donjon[k].evenement(groupe,totalOr);
+       }   
     }
     public void village(){
         System.out.println("Vous vous retrouvez sur la place du village, vous pouvez vous rendre à la taverne (a), au magasin (b) ou au donjon (c). Si vous n'êtes pas satisfait vous pouvez toujours taper 'le nain'.");
