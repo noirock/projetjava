@@ -19,7 +19,7 @@ public class Elfe extends Aventurier{
         cd1=0;
         cd2=0;
     }
-
+/*méthode permettant au Mage de soigner 1 allier en cas de réussite*/
     public void sort1(Aventurier[] groupe, Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
         System.out.println("Cible de "+getNom()+" :");
@@ -52,7 +52,7 @@ public class Elfe extends Aventurier{
         }
         cd1=4;
     }
-
+/*méthode permettant au Mage de soigner tous les alliers en cas de réussite*/
     public void sort2(Aventurier[] groupe, Ennemi[] e){
         if(action(getIntelligence(),10)==1){
             for(int i=0; i<groupe.length; i++){

@@ -31,7 +31,7 @@ public class Aventurier extends Personnage {
         this.provocation=0;
         this.resistance=0;
     }
-    
+    /*méthode qui met a 0 toutes les stats d'un personnage afin qu'il ne soit pas possible de le soigner avec une compétence par la suite*/
     public void mort(){
         changeAdresse(-getAdresse());
         changeForce(-getForce());
@@ -42,7 +42,7 @@ public class Aventurier extends Personnage {
         resistance=0;
         provocation=0;
     }
-    
+    /*méthode qui crée un entier alléatoire entre 1 et 100 et qui le compare avec la stat et le bonus entrée en parametre, retourne True si l'alléatoire est inférieur, False sinon*/
     public int action(int stat, float bonus){
         Random rand = new Random();
         int n = rand.nextInt(100) + 1;
@@ -107,7 +107,7 @@ public class Aventurier extends Personnage {
             resistance=0;
         }
     }
-
+    /*méthode qui permet a un personnage du joueur d'attaquer un ennemie durant les combats avec en cas de réussite modification des PV de l'ennemi*/
     public void coup(Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
         System.out.println("Cible de "+getNom()+" :");

@@ -19,7 +19,7 @@ public class Mage extends Aventurier{
         cd1=0;
         cd2=0;
     }
-
+/*méthode permettant au Mage de faire des dégats sur 1 ennemi en cas de réussite*/
     public void sort1(Aventurier[] a,Ennemi[] mechant){
         Scanner choix = new Scanner(System.in);
         System.out.println("Cible de "+getNom()+" :");
@@ -50,6 +50,7 @@ public class Mage extends Aventurier{
         }
         cd1=4;
     }
+    /*méthode permettant au Mage de faire des dégats sur tous les ennemis en cas de réussite*/
     public void sort2(Aventurier[] a,Ennemi[] mechant){
         if(action(getIntelligence(),10)==1){
             for(int i=0; i<mechant.length; i++){

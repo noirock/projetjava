@@ -28,6 +28,7 @@ public class Combat extends Evenement{
         }
         return false;
     }
+    /*méthode qui permet la génération des adversaires et effectuer une boucle permettant au joueur de choisir les actions de ses personnages puis les ennemies effectuent leurs actions*/
     public void evenement(Aventurier[] groupe, Integer totalOr){
        gold=0;
        Random adversaire = new Random();

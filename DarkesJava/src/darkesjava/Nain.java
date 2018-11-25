@@ -19,6 +19,7 @@ public class Nain extends Aventurier{
         cd1=0;
         cd2=0;
     }
+    /*méthode qui permet au nain de gagner en resistance pour 3tours*/
     public void sort1(Aventurier[] a, Ennemi[] e){
         if(action(getIntelligence(),20)==1){
             resistance=4;
@@ -29,6 +30,7 @@ public class Nain extends Aventurier{
         }
         cd1=5;
     }
+    /*méthode qui permet au nain de gagner la provocation pour 3tours */
     public void sort2(Aventurier[] a, Ennemi[] e){
         if(action(getIntelligence(),30)==1){
             provocation=4;

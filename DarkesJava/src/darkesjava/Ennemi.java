@@ -25,10 +25,8 @@ public class Ennemi extends Personnage {
     public String getCri(){
         return cri;
     }
+    /*methode qui permet à l'ennemi t'attaquer un personnage ce qui modifie ses pv*/
     public void attaque(Aventurier[] groupe){
-     //faire un switch, cf labw1
-     //et oué
-     
      Random rand = new Random();
      int n = rand.nextInt(groupe.length);
      while (groupe[n].getPV()<=0){
@@ -43,7 +41,7 @@ public class Ennemi extends Personnage {
      }
      System.out.println(getNom()+" attaque");
      Random jet = new Random();
-     int touche = jet.nextInt(101); //de a 101 faces parce que disney
+     int touche = jet.nextInt(100);
      if (touche>=adresse){
         groupe[n].modifPV(-attaque);
         groupe[n].parle("AIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!");

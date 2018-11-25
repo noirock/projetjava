@@ -25,10 +25,11 @@ public class Partie {
             village();
         }
     }
+    /*méthode qui permet le lancement de la partie*/
     public void debutPartie(){
         System.out.println("Vous arrivez dans un petit village avec votre groupe d'aventuriers, vous avez soif d'aventure et de trésors et c'est pourquoi vous venez vous confronter au...Donjon");
         
-        totalOr=2000;
+        totalOr=20;
         Nain Gurdil = new Nain("Gurdil", 13, 70, 40, 50);
         Nain Gunther = new Nain("Gunter", 14, 60, 50, 50);
         Elfe Tirael = new Elfe("Tirael", 10, 50, 70, 40);
@@ -63,6 +64,7 @@ public class Partie {
         System.out.println("Votre groupe est composé de "+groupe[0].getNom()+", "+groupe[1].getNom()+", "+groupe[2].getNom());
         System.out.println();
     }
+    /*méthode qui permet de modifier la composition de l'équipe*/
     public void taverne(){
         System.out.println();
         System.out.println("Bienvenue à l'auberge! Ici vous pouvez recrutez de nouveaux héros pour affronter les hordes du Donjon!");
@@ -149,6 +151,7 @@ public class Partie {
             
         }
     }
+    /*méthode qui permet d'augmenter de 5 les stats d'un personnage en réduisant la somme d'or total*/
     public void magasin(){
         System.out.println();
         System.out.println("Bienvenue au magasin! Ici vous pouvez acheter de l'équippement à vos personnages pour affronter les hordes du Donjon!");

@@ -20,6 +20,7 @@ public class Rencontre extends Evenement{
         this.defi=de;
         this.pnj=r;
     }
+    /*Méthode qui permet la résolution de l'évenement de rencontre avec un pnj, modifie les pv de toute l'équipe à la hausse en cas de victoire, à la baisse en cas de défaite. Les PVmax peuvent être dépassés*/
         public void evenement(Aventurier[] groupe, Integer totalOr){
         System.out.println(intro);
         pnj.sePresenter();

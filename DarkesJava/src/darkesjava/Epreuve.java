@@ -23,7 +23,7 @@ public class Epreuve extends Evenement{
         this.type= ty;
     }
     
-    
+    /*méthode qui permet la résolution d'une épreuve ce qui modifie les PV d'un personnage en cas d'échec, une des 3 stats en cas de victoire ou qui n'a aucune incidence*/
     public void evenement(Aventurier[] groupe, Integer totalOr){
         System.out.println();
         System.out.println(intro);
